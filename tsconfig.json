@@ -5,4 +5,5 @@
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
   "esModuleInterop": true,
   "allowSyntheticDefaultImports": true
+  
 }

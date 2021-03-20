@@ -1,30 +1,32 @@
+
 <script lang="typescript">
 
+import {isWebMidi, enableWebMidi, getInputs, getOutputs} from '../utilities/midi-utils'
 
-
-// import JZZ from 'jzz';
+const noop = () => {}
 
 const btnStyle = 'flex ba b--black-10 pa2 f6 shadow-4 grow fit-w bg-light-red mb1 mr1 pa2 pointer'
 
-const midiTest = () => {
-	// JZZ().or('Cannot start MIDI engine!')
-    //    .openMidiOut().or('Cannot open MIDI Out port!')
-    //    .wait(500).send([0x90,60,127])
-    //    .wait(500).send([0x90,64,127])
-    //    .wait(500).send([0x90,67,127])
-    //    .wait(500).send([0x90,72,127])
-    //    .wait(1000).send([0x90,60,0]).send([0x90,64,0]).send([0x90,67,0]).send([0x90,72,0])
-    //    .and('thank you!');	
-	   // and goodbye
-}
+let inputs: Input[] = []
+let outputs: Output[] = []
 
 function handleClick () {
-	console.log('hello there ')	
-	midiTest()
-}
+	const isSupported = isWebMidi()
+	isSupported ? console.log('WebMidi supported') : console.log('WebMidi not supported')	
+
+	if(isSupported){
+		enableWebMidi()
+	}else{
+		return
+	}
+
+inputs = getInputs()
+console.log(inputs)
+outputs= getOutputs()
+console.log(outputs)
+} 
 
 
-// Help
 </script>
 			
 <div>
@@ -41,6 +43,21 @@ function handleClick () {
 		
 	</div>
 </div>
+
+<h2>Inputs</h2>
+<ul>    
+	{#each inputs as {id, name, state, _midiInput}, i}
+	<li>{id}: {name} {state} {_midiInput.version}</li>
+  	{/each}
+</ul>
+
+<h2>Outputs</h2>
+<ul>    
+	{#each outputs as {id, name, state, _midiOutput}, i}
+	<li>{id}: {name} {state} {_midiOutput.version}</li>
+  	{/each}
+</ul>
+
 
 <style>
 

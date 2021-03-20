@@ -1,0 +1,88 @@
+.button-bare,
+.input-bare[type="submit"],
+.input-bare[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.button-bare:focus {
+  outline: none;
+}
+
+/* Additional styles for fitting divs to content */
+.fit-h {
+  height: fit-content;
+}
+
+.fit-w {
+  width: fit-content;
+}
+
+.fit {
+  height: fit-content;
+  width: fit-content;
+}
+
+/* grow */
+.hover-flex-grow {
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transition: flex 0.5s ease-out;
+}
+
+/* Inserting this collapsed row between two flex items will make 
+ * the flex item that comes after it break to a new row */
+.flex-break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+/* Use a collapsed column to break to a new column */
+.flex-break-column {
+  flex-basis: 100%;
+  width: 0;
+}
+
+
+/* @see<https://css-tricks.com/snippets/css/css-triangle/> */
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  
+    border-bottom: 5px solid black;
+  }
+  
+  .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  
+    border-top: 5px solid black;
+  }
+  
+  .arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  
+    border-left: 5px solid black;
+  }
+  
+  .arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  
+    border-right: 5px solid black;
+  }
+  

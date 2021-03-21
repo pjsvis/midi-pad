@@ -1,8 +1,51 @@
 
 <script lang="typescript">
+import type { JoystickManager } from 'nipplejs';
+
+import {onMount} from 'svelte'
 
 import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc} from '../utilities/midi-utils'
+// import Joystick from '../components/Joystick.svelte'
 
+import nipplejs, {JoystickManagerOptions} from 'nipplejs';
+
+var options: JoystickManagerOptions 
+var staticJs
+var joystickL
+var joysticR
+
+onMount(async () => {
+	// Enable web midi
+	enableWebMidi()
+		isEnabled=true
+
+	// Initialise the joystick
+	options = {
+		zone: document.getElementById('static'),   
+		mode: 'static',
+		position: {left: '50%', top: '50%'},
+		color: 'red'
+	}
+	staticJs = nipplejs.create(options);
+
+	 joystickL = nipplejs.create({
+                zone: document.getElementById('left'),
+                mode: 'static',
+                position: { left: '20%', top: '50%' },
+                color: 'green',
+                size: 200
+            });
+
+             joystickR = nipplejs.create({
+                zone: document.getElementById('right'),
+                mode: 'static',
+                position: { left: '80%', top: '50%' },
+                color: 'red',
+                size: 200
+            });
+
+
+	});
 
 const noop = () => {}
 
@@ -24,7 +67,6 @@ function handleEnable () {
 	}else{
 		return
 	}
-
 
 } 
 
@@ -81,6 +123,56 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 	
 </div>
 
-<style>
+<div id="zone_joystick" class="mt2">
 
+	<div id="static" class="zone static active" style="touch-action:none;">
+		
+	</div>
+   
+</div>
+
+<div id="left"></div>
+<div id="right"></div>
+
+
+<style>
+#zone_joystick {
+    position: relative;
+    background: silver;
+    box-sizing: content-box;
+    height: 450px;
+}
+
+.zone.static {
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.zone.active {
+    display: block;
+}
+
+.zone {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+#left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        #right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background: rgba(0, 0, 255, 0.1);
+        }
 </style>

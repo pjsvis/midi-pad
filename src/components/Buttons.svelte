@@ -6,8 +6,11 @@ import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc} from 
 
 const noop = () => {}
 
-const btnStyle = 'flex ba b--black-10 pa2 f6 shadow-4 grow fit-w bg-light-red mb1 mr1 pa2 pointer'
+const btnStyle = 'flex ba b--black-10 pa2 f6 shadow-4 grow fit-w bg-light-red mb1 mr2 pa2 pointer'
 
+let isEnabled= false
+let isNotEnabledStyle = "fa fa-times ml2 black"
+let isEnabledStyle = "fa fa-check ml2 black"
 let inputs: Input[] = []
 let outputs: Output[] = []
 
@@ -17,6 +20,7 @@ function handleEnable () {
 
 	if(isSupported){
 		enableWebMidi()
+		isEnabled=true
 	}else{
 		return
 	}
@@ -51,7 +55,8 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 			
 <div>	
 	<div class="flex">
-		<button class={btnStyle} on:click={handleEnable}>Enable WebMidi</button>
+		<div></div>
+		<div class={btnStyle} on:click={handleEnable}>Enable WebMidi <i class={isEnabled ? isEnabledStyle : isNotEnabledStyle}/></div>
 		<div class={btnStyle} on:click={handleShowIO}>Show I/O</div>
 		<div class={btnStyle} on:click={handleSendNotes}>Send Notes</div>
 		<div class={btnStyle} on:click={handleSendCc}>Send CC</div>		

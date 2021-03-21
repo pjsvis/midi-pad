@@ -1,5 +1,6 @@
 # TODO
 
-1. Add button to enable Web Midi
-2. Add indicator to show enabled status
-3. Add joystick
+1. [] Add listener for joysticks
+1. [x] Add button to enable Web Midi
+1. [x] Add indicator to show enabled status
+1. [x] Add joystick

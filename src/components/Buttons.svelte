@@ -4,44 +4,79 @@
 import {onMount} from 'svelte'
 import type {Input, Output} from 'webmidi'
 import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc} from '../utilities/midi-utils'
-// import Joystick from '../components/Joystick.svelte'
+import JoystickControls from '../components/JoystickControls.svelte'
+import TrackControls from './TrackControls.svelte'
+import SliderX from './SliderX.svelte'
+import SliderY from './SliderY.svelte'
+import Knob from './Knob.svelte'
 
 import nipplejs, {JoystickManagerOptions} from 'nipplejs';
 
+// Joystick 
 var options: JoystickManagerOptions 
-var staticJs
-var joystickL
-var joystickR
+var joy01
+var joy02
+var joy03
+var joy04
+
+$: incAmount = 0
+
+const zoom = (event: WheelEvent) => {
+	return
+	console.log(event)
+	const x = event.clientX
+	const y = event.clientY
+	var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
+	incAmount = incAmount + delta
+	console.log('delta', delta)
+	console.log('incAmount', incAmount)
+	let focusedEl = document.elementFromPoint(x, y);
+	console.log(focusedEl.getAttribute('id'))
+}
 
 onMount(async () => {
+	incAmount=0
+	// Capture mouse wheel
+	document.onwheel = zoom;
+
 	// Enable web midi
 	enableWebMidi()
 		isEnabled=true
 
-	staticJs = nipplejs.create({
-		zone: document.getElementById('static'),   
-		mode: 'static',
-		position: {left: '50%', top: '50%'},
-		color: 'red',
-		size: 200
-	});
+	joy01 = nipplejs.create({
+			zone: document.getElementById('joy01'),   
+			mode: 'static',
+			position: {left: '10%', top: '50%'},
+			color: 'red',
+			size: 200,
+			restJoystick: false,
+		});
 
-	 joystickL = nipplejs.create({
-                zone: document.getElementById('left'),
+	 joy02 = nipplejs.create({
+                zone: document.getElementById('joy02'),
                 mode: 'static',
-                position: { left: '20%', top: '50%' },
+                position: { left: '30%', top: '50%' },
                 color: 'green',
-                size: 200
+                size: 200,
+				restJoystick: false,
             });
 
-    joystickR = nipplejs.create({
-                zone: document.getElementById('right'),
+    joy03 = nipplejs.create({
+                zone: document.getElementById('joy03'),
                 mode: 'static',
-                position: { left: '80%', top: '50%' },
+                position: { left: '50%', top: '50%' },
                 color: 'red',
-                size: 200
+                size: 200,
+				restJoystick: false,
             });
-
+	joy04 = nipplejs.create({
+			zone: document.getElementById('joy04'),
+			mode: 'static',
+			position: { left: '70%', top: '50%' },
+			color: 'green',
+			size: 200,
+			restJoystick: false,
+		});
 
 	});
 
@@ -91,6 +126,10 @@ const handleSendCc = () => {
 const rowTitleClass="ba b--black-10 pa2 tc f5 fw4"
 const rowClass="bl br bb b--black-10 pa2 tl f6"
 
+
+let value = 0;
+	const reset = () => { value = 50 };
+
 </script>
 			
 <div>	
@@ -121,16 +160,46 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 	
 </div>
 
-<div id="zone_joystick" class="mt2">
-
-	<div id="static" class="zone static active" style="touch-action:none;">
-		
-	</div>
-   
+<div class="flex mt2">
+	<TrackControls />
 </div>
 
-<div id="left"></div>
-<div id="right"></div>
+<div class="flex mt2">
+	<SliderX  />
+
+	IncAmount: {incAmount}
+<SliderX  />
+
+</div>
+
+<div class="flex mt2">
+
+	<SliderY  />
+
+<SliderY  />
+
+</div>
+
+<div class="flex mt2">
+	<Knob />
+	
+</div>
+
+<div class="flex mt2">
+	<JoystickControls />
+</div>
+
+<div id="zone_joystick" class="mt2">
+
+	<div id="joy01" class="zone static active" style="touch-action:none;">
+	</div>
+   
+	<div id="joy02"></div>
+	<div id="joy03"></div>
+	<div id="joy04"></div>
+</div>
+
+
 
 
 <style>
@@ -156,21 +225,5 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
     height: 100%;
     left: 0;
 }
-#left {
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 50%;
-	background: rgba(0, 255, 0, 0.1);
-        }
 
-#right {
-	position: absolute;
-	right: 0;
-	top: 0;
-	height: 100%;
-	width: 50%;
-	background: rgba(0, 0, 255, 0.1);
-}
 </style>

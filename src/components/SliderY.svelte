@@ -86,8 +86,7 @@ input[type='range']  {
 	input[type=range]::-ms-track {
 		width: 100%;
 		height: 8px;
-		cursor: pointer;
-		animate: 0.2s;
+		cursor: pointer;		
 		background: transparent;
 		border-color: transparent;
 		border-width: 39px 0;

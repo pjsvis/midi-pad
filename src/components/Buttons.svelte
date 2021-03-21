@@ -13,20 +13,18 @@ import Knob from './Knob.svelte'
 import nipplejs, {JoystickManagerOptions} from 'nipplejs';
 
 // Joystick 
-var options: JoystickManagerOptions 
-var joy01
-var joy02
-var joy03
-var joy04
+let joy01: unknown
+let joy02: unknown
+let joy03: unknown
+let joy04: unknown
 
 $: incAmount = 0
 
-const zoom = (event: WheelEvent) => {
-	return
+const zoom = (event: WheelEvent) => {	
 	console.log(event)
 	const x = event.clientX
 	const y = event.clientY
-	var delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
+	var delta = Math.max(-1, Math.min(1, (event.deltaY || -event.detail)));
 	incAmount = incAmount + delta
 	console.log('delta', delta)
 	console.log('incAmount', incAmount)
@@ -80,7 +78,7 @@ onMount(async () => {
 
 	});
 
-const noop = () => {}
+
 
 const btnStyle = 'flex ba b--black-10 pa2 f6 shadow-4 grow fit-w bg-light-red mb1 mr2 pa2 pointer'
 
@@ -127,8 +125,8 @@ const rowTitleClass="ba b--black-10 pa2 tc f5 fw4"
 const rowClass="bl br bb b--black-10 pa2 tl f6"
 
 
-let value = 0;
-	const reset = () => { value = 50 };
+
+
 
 </script>
 			

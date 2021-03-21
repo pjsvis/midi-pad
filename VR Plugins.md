@@ -20,15 +20,11 @@
 - J4A A: 58, E: 59
 - J4B W: 60, D: 61
 
-
 ## Unify Parameter Links
 
-
-- 
 - Joystick-01 Control
 - inst/1/effect/1/StereoWidth
 - inst/1/effect/2/Distance
- 
 - Joystick-02 Control
 - inst/1/effect/2/Azimuth
 - inst/1/effect/2/Elevation
@@ -45,10 +41,6 @@
 
 - [A1 Stereo Control](https://a1audio.alexhilton.net/a1stereocontrol)
 - StereoWidth
-
-
-
-
 
 ## Other VR Plugins
 

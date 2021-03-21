@@ -1,5 +1,5 @@
 <script lang="typescript">
-import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc} from '../utilities/midi-utils'
+import { enableWebMidi} from '../utilities/midi-utils'
     import {onMount} from 'svelte'
     // onload enable all tracks
 onMount(async () =>{

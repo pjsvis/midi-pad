@@ -1,9 +1,8 @@
 
-<script lang="typescript">
-import type { JoystickManager } from 'nipplejs';
+<script lang="ts">
 
 import {onMount} from 'svelte'
-
+import type {Input, Output} from 'webmidi'
 import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc} from '../utilities/midi-utils'
 // import Joystick from '../components/Joystick.svelte'
 
@@ -12,21 +11,20 @@ import nipplejs, {JoystickManagerOptions} from 'nipplejs';
 var options: JoystickManagerOptions 
 var staticJs
 var joystickL
-var joysticR
+var joystickR
 
 onMount(async () => {
 	// Enable web midi
 	enableWebMidi()
 		isEnabled=true
 
-	// Initialise the joystick
-	options = {
+	staticJs = nipplejs.create({
 		zone: document.getElementById('static'),   
 		mode: 'static',
 		position: {left: '50%', top: '50%'},
-		color: 'red'
-	}
-	staticJs = nipplejs.create(options);
+		color: 'red',
+		size: 200
+	});
 
 	 joystickL = nipplejs.create({
                 zone: document.getElementById('left'),
@@ -36,7 +34,7 @@ onMount(async () => {
                 size: 200
             });
 
-             joystickR = nipplejs.create({
+    joystickR = nipplejs.create({
                 zone: document.getElementById('right'),
                 mode: 'static',
                 position: { left: '80%', top: '50%' },
@@ -159,20 +157,20 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
     left: 0;
 }
 #left {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 50%;
-            background: rgba(0, 255, 0, 0.1);
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	background: rgba(0, 255, 0, 0.1);
         }
 
-        #right {
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            width: 50%;
-            background: rgba(0, 0, 255, 0.1);
-        }
+#right {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	background: rgba(0, 0, 255, 0.1);
+}
 </style>

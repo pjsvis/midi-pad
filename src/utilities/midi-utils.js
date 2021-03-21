@@ -3,7 +3,7 @@ const noop = () => { };
 export const isWebMidi = () => {
     return navigator["requestMIDIAccess"];
 };
-// TODO: Fix this so that it returns a boolean
+// TODO: Fix this so that it returns a bollean
 export const enableWebMidi = async () => {
     if (WebMidi.enabled) {
         return;

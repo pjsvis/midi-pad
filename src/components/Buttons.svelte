@@ -1,7 +1,8 @@
 
 <script lang="typescript">
 
-import {isWebMidi, enableWebMidi, getInputs, getOutputs} from '../utilities/midi-utils'
+import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc} from '../utilities/midi-utils'
+
 
 const noop = () => {}
 
@@ -10,9 +11,9 @@ const btnStyle = 'flex ba b--black-10 pa2 f6 shadow-4 grow fit-w bg-light-red mb
 let inputs: Input[] = []
 let outputs: Output[] = []
 
-function handleClick () {
+function handleEnable () {
 	const isSupported = isWebMidi()
-	isSupported ? console.log('WebMidi supported') : console.log('WebMidi not supported')	
+	isSupported ? console.log('WebMidi supported') : alert('WebMidi not supported')	
 
 	if(isSupported){
 		enableWebMidi()
@@ -20,27 +21,37 @@ function handleClick () {
 		return
 	}
 
-inputs = getInputs()
-console.log(inputs)
-outputs= getOutputs()
-console.log(outputs)
+
 } 
 
+const handleShowIO = () => {
+	inputs = getInputs()
 
+outputs= getOutputs()
+
+}
+
+const handleSendNotes = () => {
+	const note = [42, 44, 46, 48, 50]
+	const port = 6
+	playNote(port, note)
+}
+
+const handleSendCc = () => {
+	const value = 127
+	const port = 6
+	const controller = 14
+	sendCc(port, controller, value)
+}
 </script>
 			
 <div>
 	<h1>Buttons</h1>
 	<div class="flex">
-		<button class={btnStyle} on:click={handleClick}>Button 01</button>
-		<div class={btnStyle}>Button 02</div>
-		<div class={btnStyle}>Button 03</div>
-		<div class={btnStyle}>Button 04</div>
-		<div class={btnStyle}>Button 05</div>
-		<div class={btnStyle}>Button 06</div>
-		<div class={btnStyle}>Button 07</div>
-		<div class={btnStyle}>Button 08</div>
-		
+		<button class={btnStyle} on:click={handleEnable}>Enable WebMidi</button>
+		<div class={btnStyle} on:click={handleShowIO}>Show I/O</div>
+		<div class={btnStyle} on:click={handleSendNotes}>Send Notes</div>
+		<div class={btnStyle} on:click={handleSendCc}>Send CC</div>		
 	</div>
 </div>
 

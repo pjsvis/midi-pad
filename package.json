@@ -34,6 +34,7 @@
     "@types/webmidi": "^2.0.4",
     "jzz": "^1.2.5",
     "midijs": "^0.12.0",
+    "nipplejs": "^0.9.0",
     "sirv-cli": "^1.0.0",
     "tachyons": "^4.12.0",
     "webmidi": "^2.5.2"

@@ -43,10 +43,13 @@ const handleSendCc = () => {
 	const controller = 14
 	sendCc(port, controller, value)
 }
+
+const rowTitleClass="ba b--black-10 pa2 tc f5 fw4"
+const rowClass="bl br bb b--black-10 pa2 tl f6"
+
 </script>
 			
-<div>
-	<h1>Buttons</h1>
+<div>	
 	<div class="flex">
 		<button class={btnStyle} on:click={handleEnable}>Enable WebMidi</button>
 		<div class={btnStyle} on:click={handleShowIO}>Show I/O</div>
@@ -55,20 +58,23 @@ const handleSendCc = () => {
 	</div>
 </div>
 
-<h2>Inputs</h2>
-<ul>    
-	{#each inputs as {id, name, state, _midiInput}, i}
-	<li>{id}: {name} {state} {_midiInput.version}</li>
-  	{/each}
-</ul>
-
-<h2>Outputs</h2>
-<ul>    
-	{#each outputs as {id, name, state, _midiOutput}, i}
-	<li>{id}: {name} {state} {_midiOutput.version}</li>
-  	{/each}
-</ul>
-
+<div class="flex mt2">
+	
+	<div>  
+		<div class={rowTitleClass}>Inputs</div>  
+		{#each inputs as {id, name, state}}
+		<div class={rowClass}>{id} :: {name} :: {state}</div>
+		{/each}
+	</div>
+	
+	<div class="ml2">    
+		<div class={rowTitleClass}>Outputs</div>  
+		{#each outputs as {id, name, state}}
+		<div class={rowClass}>{id} :: {name} :: {state}</div>
+		{/each}
+	</div>
+	
+</div>
 
 <style>
 

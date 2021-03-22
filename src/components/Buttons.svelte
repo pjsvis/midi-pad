@@ -7,13 +7,11 @@ import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc, disab
 import JoystickControls from '../components/JoystickControls.svelte'
 import TrackControls from './TrackControls.svelte'
 import Knob from './Knob.svelte'
-import Todo from './Todo.svelte'
 import RangeSlider from 'svelte-range-slider-pips'
 
 import nipplejs, {JoystickManagerOptions} from 'nipplejs';
 import { prevent_default, set_attributes } from 'svelte/internal';
 
-import keyboardJS from 'keyboardjs'
 
 // Joystick 
 let joy01: unknown
@@ -110,12 +108,6 @@ onMount(async () => {
 	isEnabled=true
 	createJoysticks()
 	
-
-	keyboardJS.bind('alt', (e) => {
-  console.log('alt is pressed');
-}, (e) => {
-  console.log('alt is released');
-});
 	});
 
 
@@ -209,22 +201,9 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 	Hello RangeSlider
 <RangeSlider pips min={0} max={127} values={127} />
 
-	<!-- <SliderX  />
-
-	IncAmount: {incAmount}
-<SliderX  /> -->
 
 </div>
 
-<div class="flex fr"><Todo/></div>
-
-<div class="flex mt2">
-
-	<!-- <SliderY  />
-
-<SliderY  />
-<SliderY  /> -->
-</div>
 
 <div class="flex flex-row mt2 fit">
 	<Knob />

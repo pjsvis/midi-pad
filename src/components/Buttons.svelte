@@ -7,16 +7,16 @@ import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc, disab
 import JoystickControls from '../components/JoystickControls.svelte'
 import TrackControls from './TrackControls.svelte'
 import Sliders from './Sliders.svelte'
+import Menu from './Menu.svelte'
+import MidiSelect from './MidiSelect.svelte'
 import Test from './Test.svelte'
-
 
 import nipplejs, {Joystick, JoystickManagerOptions} from 'nipplejs';
 import { prevent_default, set_attributes } from 'svelte/internal';
 
 // Handle mouse scroll
 const zoom = (event: WheelEvent) => {	
-	
-	console.log(event)
+		console.log(event)
 	const x = event.clientX
 	const y = event.clientY
 	
@@ -164,6 +164,10 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 
 
 <div>	
+	<div class="flex mb2">
+		<Menu />
+		<MidiSelect />
+	</div>
 	<div class="flex">
 		<div></div>
 		<div class={btnStyle} on:click={handleEnable}>Enable WebMidi <i class={isEnabled ? isEnabledStyle : isNotEnabledStyle}/></div>
@@ -176,11 +180,10 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 
 <div class="flex">
 	<Sliders />
+
 </div>
 
-<div class="flex">
-	<Test />
-</div>
+<div>	<Test /></div>
 
 <!-- Inputs and Outputs -->
 <div class="flex mt2">
@@ -223,6 +226,7 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 
 
 <style>
+
 #zone_joystick {
     position: relative;
     background: silver;

@@ -35,6 +35,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@types/webmidi": "^2.0.4",
     "jzz": "^1.2.5",
+    "keyboardjs": "^2.6.4",
     "midijs": "^0.12.0",
     "nipplejs": "^0.9.0",
     "np-knob": "^2.0.1",

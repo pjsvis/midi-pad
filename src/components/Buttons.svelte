@@ -6,14 +6,14 @@ import type {Input, Output} from 'webmidi'
 import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc, disableWebMidi} from '../utilities/midi-utils'
 import JoystickControls from '../components/JoystickControls.svelte'
 import TrackControls from './TrackControls.svelte'
-import SliderX from './SliderX.svelte'
-import SliderY from './SliderY.svelte'
 import Knob from './Knob.svelte'
 import Todo from './Todo.svelte'
 import RangeSlider from 'svelte-range-slider-pips'
 
 import nipplejs, {JoystickManagerOptions} from 'nipplejs';
 import { prevent_default, set_attributes } from 'svelte/internal';
+
+import keyboardJS from 'keyboardjs'
 
 // Joystick 
 let joy01: unknown
@@ -53,7 +53,6 @@ const zoom = (event: WheelEvent) => {
 
 	inputEl.value =  Math.min(Math.max(parseInt(newValue.toString()), inputMin), inputMax).toString()
 	
-	// TODO: Fit within range
 	console.log('delta', delta)
 	console.log('newValue', inputEl.value)	
 	prevent_default
@@ -99,6 +98,9 @@ const createJoysticks = () => {
 }
 
 
+
+
+
 onMount(async () => {	
 	// Capture mouse wheel
 	document.onwheel = zoom;
@@ -107,7 +109,13 @@ onMount(async () => {
 	enableWebMidi()
 	isEnabled=true
 	createJoysticks()
+	
 
+	keyboardJS.bind('alt', (e) => {
+  console.log('alt is pressed');
+}, (e) => {
+  console.log('alt is released');
+});
 	});
 
 
@@ -160,6 +168,7 @@ const handleSendCc = () => {
 
 const rowTitleClass="ba b--black-10 pa2 tc f5 fw4"
 const rowClass="bl br bb b--black-10 pa2 tl f6"
+
 
 </script>
 			
@@ -217,11 +226,21 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 <SliderY  /> -->
 </div>
 
-<div class="flex mt2">
+<div class="flex flex-row mt2 fit">
+	<Knob />
+	<Knob />
+	<Knob />
 	<Knob />
 	
 </div>
+<div>
 
+	<p>
+		<p>
+			<p>
+				<p>
+					&nbsp;
+</div>
 <div class="flex mt2">
 	<JoystickControls />
 </div>

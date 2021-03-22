@@ -4,6 +4,5 @@
 </script>
 
 <div >
-Hello JoystickControls
    
 </div>

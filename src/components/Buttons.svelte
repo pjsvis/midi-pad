@@ -6,20 +6,14 @@ import type {Input, Output} from 'webmidi'
 import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc, disableWebMidi} from '../utilities/midi-utils'
 import JoystickControls from '../components/JoystickControls.svelte'
 import TrackControls from './TrackControls.svelte'
-import Knob from './Knob.svelte'
-import RangeSlider from 'svelte-range-slider-pips'
+import Sliders from './Sliders.svelte'
+import Test from './Test.svelte'
 
-import nipplejs, {JoystickManagerOptions} from 'nipplejs';
+
+import nipplejs, {Joystick, JoystickManagerOptions} from 'nipplejs';
 import { prevent_default, set_attributes } from 'svelte/internal';
 
-
-// Joystick 
-let joy01: unknown
-let joy02: unknown
-let joy03: unknown
-let joy04: unknown
-
-
+// Handle mouse scroll
 const zoom = (event: WheelEvent) => {	
 	
 	console.log(event)
@@ -56,6 +50,12 @@ const zoom = (event: WheelEvent) => {
 	prevent_default
 	
 }
+
+// Joystick 
+let joy01
+let joy02
+let joy03
+let joy04
 
 const createJoysticks = () => {
 	joy01 = nipplejs.create({
@@ -94,10 +94,6 @@ const createJoysticks = () => {
 		});
 
 }
-
-
-
-
 
 onMount(async () => {	
 	// Capture mouse wheel
@@ -163,7 +159,10 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 
 
 </script>
-			
+	
+
+
+
 <div>	
 	<div class="flex">
 		<div></div>
@@ -175,6 +174,15 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 	</div>
 </div>
 
+<div class="flex">
+	<Sliders />
+</div>
+
+<div class="flex">
+	<Test />
+</div>
+
+<!-- Inputs and Outputs -->
 <div class="flex mt2">
 	
 	<div>  
@@ -197,29 +205,6 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 	<TrackControls />
 </div>
 
-<div class="flex mt2">
-	Hello RangeSlider
-<RangeSlider pips min={0} max={127} values={127} />
-
-
-</div>
-
-
-<div class="flex flex-row mt2 fit">
-	<Knob />
-	<Knob />
-	<Knob />
-	<Knob />
-	
-</div>
-<div>
-
-	<p>
-		<p>
-			<p>
-				<p>
-					&nbsp;
-</div>
 <div class="flex mt2">
 	<JoystickControls />
 </div>

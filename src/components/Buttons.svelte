@@ -3,14 +3,17 @@
 
 import {onMount} from 'svelte'
 import type {Input, Output} from 'webmidi'
-import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc} from '../utilities/midi-utils'
+import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc, disableWebMidi} from '../utilities/midi-utils'
 import JoystickControls from '../components/JoystickControls.svelte'
 import TrackControls from './TrackControls.svelte'
 import SliderX from './SliderX.svelte'
 import SliderY from './SliderY.svelte'
 import Knob from './Knob.svelte'
+import Todo from './Todo.svelte'
+import RangeSlider from 'svelte-range-slider-pips'
 
 import nipplejs, {JoystickManagerOptions} from 'nipplejs';
+import { prevent_default, set_attributes } from 'svelte/internal';
 
 // Joystick 
 let joy01: unknown
@@ -18,29 +21,46 @@ let joy02: unknown
 let joy03: unknown
 let joy04: unknown
 
-$: incAmount = 0
 
 const zoom = (event: WheelEvent) => {	
+	
 	console.log(event)
 	const x = event.clientX
 	const y = event.clientY
+	
+	// What element are we scrolling
+	let focussedEl = document.elementFromPoint(x, y);
+	console.log(focussedEl)
+
+	
+	let isDataScroll = focussedEl.getAttribute('data-scroll') !== null
+	let isInput = focussedEl instanceof HTMLInputElement
+	
+	
+	// Not scrollable input so exit
+	if(!isDataScroll && isInput){return}
+	
+	
+	let inputEl: HTMLInputElement = focussedEl as HTMLInputElement
+
+	// Change value as per scroll direction
+	let currentValue = parseInt(inputEl.value)	
 	var delta = Math.max(-1, Math.min(1, (event.deltaY || -event.detail)));
-	incAmount = incAmount + delta
+	let newValue = delta < 0 ? currentValue + 1 : currentValue - 1
+
+	let inputMax = parseInt(inputEl.max)
+	let inputMin = parseInt(inputEl.min)
+
+	inputEl.value =  Math.min(Math.max(parseInt(newValue.toString()), inputMin), inputMax).toString()
+	
+	// TODO: Fit within range
 	console.log('delta', delta)
-	console.log('incAmount', incAmount)
-	let focusedEl = document.elementFromPoint(x, y);
-	console.log(focusedEl.getAttribute('id'))
+	console.log('newValue', inputEl.value)	
+	prevent_default
+	
 }
 
-onMount(async () => {
-	incAmount=0
-	// Capture mouse wheel
-	document.onwheel = zoom;
-
-	// Enable web midi
-	enableWebMidi()
-		isEnabled=true
-
+const createJoysticks = () => {
 	joy01 = nipplejs.create({
 			zone: document.getElementById('joy01'),   
 			mode: 'static',
@@ -76,6 +96,18 @@ onMount(async () => {
 			restJoystick: false,
 		});
 
+}
+
+
+onMount(async () => {	
+	// Capture mouse wheel
+	document.onwheel = zoom;
+
+	// Enable web midi
+	enableWebMidi()
+	isEnabled=true
+	createJoysticks()
+
 	});
 
 
@@ -101,6 +133,11 @@ function handleEnable () {
 
 } 
 
+const handleDisable = async () => {
+	await disableWebMidi()
+	isEnabled=false
+}
+
 const handleShowIO = () => {
 	inputs = getInputs()
 
@@ -124,16 +161,13 @@ const handleSendCc = () => {
 const rowTitleClass="ba b--black-10 pa2 tc f5 fw4"
 const rowClass="bl br bb b--black-10 pa2 tl f6"
 
-
-
-
-
 </script>
 			
 <div>	
 	<div class="flex">
 		<div></div>
 		<div class={btnStyle} on:click={handleEnable}>Enable WebMidi <i class={isEnabled ? isEnabledStyle : isNotEnabledStyle}/></div>
+		<div class={btnStyle} on:click={handleDisable}>Disable WebMidi <i class={isEnabled ? isEnabledStyle : isNotEnabledStyle}/></div>
 		<div class={btnStyle} on:click={handleShowIO}>Show I/O</div>
 		<div class={btnStyle} on:click={handleSendNotes}>Send Notes</div>
 		<div class={btnStyle} on:click={handleSendCc}>Send CC</div>		
@@ -163,19 +197,24 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 </div>
 
 <div class="flex mt2">
-	<SliderX  />
+	Hello RangeSlider
+<RangeSlider pips min={0} max={127} values={127} />
+
+	<!-- <SliderX  />
 
 	IncAmount: {incAmount}
-<SliderX  />
+<SliderX  /> -->
 
 </div>
 
+<div class="flex fr"><Todo/></div>
+
 <div class="flex mt2">
 
-	<SliderY  />
+	<!-- <SliderY  />
 
 <SliderY  />
-
+<SliderY  /> -->
 </div>
 
 <div class="flex mt2">

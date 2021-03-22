@@ -4,6 +4,9 @@
 
 # svelte app
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bc50f9e5-b93b-41b2-b9ec-992b99d0b9f6/deploy-status)](https://app.netlify.com/sites/hungry-almeida-de0b21/deploys)
+
+
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):

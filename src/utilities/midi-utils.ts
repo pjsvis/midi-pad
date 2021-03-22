@@ -3,21 +3,18 @@ import WebMidi, { Input, Output, INoteParam } from 'webmidi'
 const noop = () => { }
 
 export const isWebMidi = () => {
-    return navigator["requestMIDIAccess"]
+    return navigator["requestMIDIAccess"]   
 }
 
-// TODO: Fix this so that it returns a bollean
+// TODO: Fix this so that it returns a boolean
 export const enableWebMidi = async () => {
     if (WebMidi.enabled) { return }
     return WebMidi.enable()
-    // WebMidi.enable(function (err) {
-    //     if (err) {
-    //         console.log('Not supported error: ', err)
-    //     } else {
-    //         console.log('WebMidi enabled')
-    //     }
+}
 
-    // });
+export const disableWebMidi = async () => {
+    if (WebMidi.enabled) { return }
+    return WebMidi.disable()
 }
 
 export const getInputs = () => {

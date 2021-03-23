@@ -2,41 +2,28 @@
  import Arrows from './Arrows.svelte'
  import {Button} from 'svelte-mui'
 import MacroButton from './MacroButton.svelte' 
+import {midiPadData} from './MidiPadData'
 
-
-    let vals = [0,10,35,64,78,20,34,120]
     
     const btnStyle = 'ba b--blue bw2 b--solid br3 pa2 f6 shadow-5 dim w4 h4 bg-light-red mb3 mr3 pa2 pointer'
     const exBtnStyle = 'button-bare ' + btnStyle
 
+  
 
+const macroStates = midiPadData.macroStates 
 
     </script>
     
-<div class="flex flex-column  cb mr2">
-
-    <Button raised toggle="true" color="primary">Toggle</Button>
-  <p>&nbsp;</p>  
-
-<button class={exBtnStyle}>Test Button</button>
-
-</div>
-
-<!-- <div class="cb"><Arrows /></div> -->
-
 <div class="cb">
 
+  <div class="flex">
+      {#each  macroStates as {id, title, ccIn, ccOut, isDisabled }, i}
+        <MacroButton id={id} title={title} ccIn={ccIn} ccOut={ccOut} isDisabled={isDisabled} />
+      }
+      {/each}  
+  </div>
     
-    <div class="flex">        
-        <MacroButton title="" cc={14} isDisabled={false} />
-        <MacroButton title="" cc={15} isDisabled={true}/>
-        <MacroButton title=""  cc={16}  isDisabled={true}/>
-        <MacroButton title=""  cc={17}  isDisabled={true}/>
-        <MacroButton title=""  cc={18}  isDisabled={true}/>
-        <MacroButton title=""  cc={19}  isDisabled={true}/>
-        <MacroButton title=""  cc={20}  isDisabled={true}/>
-        <MacroButton title=""  cc={21}  isDisabled={true}/>
-    </div>
+
     <div class="flex">        
         <div class={btnStyle}>CC22</div>
         <div class={btnStyle}>CC23</div>

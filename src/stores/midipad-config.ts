@@ -1,10 +1,10 @@
 
-import type { MidiPadData } from "../types/midi-pad-types";
+import type { MidipadConfig } from "../types/midi-pad-types";
 
-    export const midiPadData: MidiPadData ={        
+    export const initialMidipadConfig: MidipadConfig ={        
         id: 1,
-        title: 'string',
-        description: 'string',
+        title: 'Initial Midipad Config',
+        description: `On first use Midipad will store this in local storage. `,
         midiPortsIn:['loopMIDI Port OUT'],
         midiPortsOut:['loopMIDI Port OUT'],
         macroStates: [

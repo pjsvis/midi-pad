@@ -4,19 +4,17 @@
 import {onMount} from 'svelte'
 import type {Input, Output} from 'webmidi'
 import {isWebMidi, enableWebMidi, getInputs, getOutputs, playNote, sendCc, disableWebMidi} from '../utilities/midi-utils'
-import JoystickControls from '../components/JoystickControls.svelte'
-import TrackControls from './TrackControls.svelte'
-import Sliders from './Sliders.svelte'
+
 import Menu from './Menu.svelte'
 import MidiSelect from './MidiSelect.svelte'
-import Test from './Test.svelte'
+import MacroControls from './MacroControls.svelte'
 
-import nipplejs, {Joystick, JoystickManagerOptions} from 'nipplejs';
 import { prevent_default, set_attributes } from 'svelte/internal';
+import KeyTrap from './KeyTrap.svelte';
 
 // Handle mouse scroll
 const zoom = (event: WheelEvent) => {	
-		console.log(event)
+	console.log(event)
 	const x = event.clientX
 	const y = event.clientY
 	
@@ -51,50 +49,6 @@ const zoom = (event: WheelEvent) => {
 	
 }
 
-// Joystick 
-let joy01
-let joy02
-let joy03
-let joy04
-
-const createJoysticks = () => {
-	joy01 = nipplejs.create({
-			zone: document.getElementById('joy01'),   
-			mode: 'static',
-			position: {left: '10%', top: '50%'},
-			color: 'red',
-			size: 200,
-			restJoystick: false,
-		});
-
-	 joy02 = nipplejs.create({
-                zone: document.getElementById('joy02'),
-                mode: 'static',
-                position: { left: '30%', top: '50%' },
-                color: 'green',
-                size: 200,
-				restJoystick: false,
-            });
-
-    joy03 = nipplejs.create({
-                zone: document.getElementById('joy03'),
-                mode: 'static',
-                position: { left: '50%', top: '50%' },
-                color: 'red',
-                size: 200,
-				restJoystick: false,
-            });
-	joy04 = nipplejs.create({
-			zone: document.getElementById('joy04'),
-			mode: 'static',
-			position: { left: '70%', top: '50%' },
-			color: 'green',
-			size: 200,
-			restJoystick: false,
-		});
-
-}
-
 onMount(async () => {	
 	// Capture mouse wheel
 	document.onwheel = zoom;
@@ -102,7 +56,9 @@ onMount(async () => {
 	// Enable web midi
 	enableWebMidi()
 	isEnabled=true
-	createJoysticks()
+	
+	
+
 	
 	});
 
@@ -161,15 +117,14 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 </script>
 	
 
-
+<KeyTrap/>
 
 <div>	
 	<div class="flex mb2">
 		<Menu />
 		<MidiSelect />
 	</div>
-	<div class="flex">
-		<div></div>
+	<div class="flex">		
 		<div class={btnStyle} on:click={handleEnable}>Enable WebMidi <i class={isEnabled ? isEnabledStyle : isNotEnabledStyle}/></div>
 		<div class={btnStyle} on:click={handleDisable}>Disable WebMidi <i class={isEnabled ? isEnabledStyle : isNotEnabledStyle}/></div>
 		<div class={btnStyle} on:click={handleShowIO}>Show I/O</div>
@@ -178,12 +133,6 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 	</div>
 </div>
 
-<div class="flex">
-	<Sliders />
-
-</div>
-
-<div>	<Test /></div>
 
 <!-- Inputs and Outputs -->
 <div class="flex mt2">
@@ -205,49 +154,12 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 </div>
 
 <div class="flex mt2">
-	<TrackControls />
+	<MacroControls />
 </div>
-
-<div class="flex mt2">
-	<JoystickControls />
-</div>
-
-<div id="zone_joystick" class="mt2">
-
-	<div id="joy01" class="zone static active" style="touch-action:none;">
-	</div>
-   
-	<div id="joy02"></div>
-	<div id="joy03"></div>
-	<div id="joy04"></div>
-</div>
-
 
 
 
 <style>
 
-#zone_joystick {
-    position: relative;
-    background: silver;
-    box-sizing: content-box;
-    height: 450px;
-}
-
-.zone.static {
-    background: rgba(255, 0, 0, 0.1);
-}
-
-.zone.active {
-    display: block;
-}
-
-.zone {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-}
 
 </style>

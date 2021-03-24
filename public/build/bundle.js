@@ -9109,18 +9109,18 @@ var app = (function () {
     			attr_dev(input, "type", "submit");
     			input.value = "Clear Sketchpad";
     			attr_dev(input, "id", "clearbutton");
-    			attr_dev(input, "class", "svelte-kh77v3");
-    			add_location(input, file$2, 146, 8, 5333);
+    			attr_dev(input, "class", "svelte-1p42njl");
+    			add_location(input, file$2, 123, 8, 5028);
     			attr_dev(canvas_1, "id", "sketchpad");
     			attr_dev(canvas_1, "height", "300");
     			attr_dev(canvas_1, "width", "400");
-    			attr_dev(canvas_1, "class", "svelte-kh77v3");
-    			add_location(canvas_1, file$2, 148, 8, 5469);
-    			attr_dev(div0, "class", "rightside svelte-kh77v3");
-    			add_location(div0, file$2, 147, 4, 5436);
+    			attr_dev(canvas_1, "class", "svelte-1p42njl");
+    			add_location(canvas_1, file$2, 125, 8, 5170);
+    			attr_dev(div0, "class", "rightside svelte-1p42njl");
+    			add_location(div0, file$2, 124, 4, 5137);
     			attr_dev(div1, "id", "sketchpadapp");
-    			attr_dev(div1, "class", "svelte-kh77v3");
-    			add_location(div1, file$2, 140, 0, 5011);
+    			attr_dev(div1, "class", "svelte-1p42njl");
+    			add_location(div1, file$2, 117, 0, 4706);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9133,23 +9133,11 @@ var app = (function () {
     			append_dev(div0, canvas_1);
 
     			if (!mounted) {
-    				dispose = listen_dev(
-    					input,
-    					"click",
-    					function () {
-    						if (is_function(clearCanvas(/*canvas*/ ctx[0], /*ctx*/ ctx[1]))) clearCanvas(/*canvas*/ ctx[0], /*ctx*/ ctx[1]).apply(this, arguments);
-    					},
-    					false,
-    					false,
-    					false
-    				);
-
+    				dispose = listen_dev(input, "click", /*click_handler*/ ctx[2], false, false, false);
     				mounted = true;
     			}
     		},
-    		p: function update(new_ctx, [dirty]) {
-    			ctx = new_ctx;
-    		},
+    		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
@@ -9232,8 +9220,6 @@ var app = (function () {
 
     	// Get the current mouse position relative to the top-left of the canvas
     	function getMousePos(e) {
-    		if (!e) var e = event;
-
     		if (e.offsetX) {
     			mouseX = e.offsetX;
     			mouseY = e.offsetY;
@@ -9244,14 +9230,11 @@ var app = (function () {
     	}
 
     	// Draw something when a touch start is detected
-    	function sketchpad_touchStart() {
+    	function sketchpad_touchStart(e) {
     		// Update the touch co-ordinates
-    		getTouchPos();
+    		getTouchPos(e);
 
     		drawDot(ctx, touchX, touchY, 12);
-
-    		// Prevents an additional mousedown event being triggered
-    		event.preventDefault();
     	}
 
     	// Draw something and prevent the default scrolling when touch movement is detected
@@ -9261,9 +9244,6 @@ var app = (function () {
 
     		// During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
     		drawDot(ctx, touchX, touchY, 12);
-
-    		// Prevent a scrolling action as a result of this touchmove triggering.
-    		event.preventDefault();
     	}
 
     	// Get the touch position relative to the top-left of the canvas
@@ -9319,8 +9299,11 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$1.warn(`<XYPad> was created with unknown prop '${key}'`);
     	});
 
+    	const click_handler = () => clearCanvas(canvas, ctx);
+
     	$$self.$capture_state = () => ({
     		onMount,
+    		prevent_default,
     		canvas,
     		ctx,
     		mouseX,
@@ -9362,7 +9345,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [canvas, ctx];
+    	return [canvas, ctx, click_handler];
     }
 
     class XYPad extends SvelteComponentDev {

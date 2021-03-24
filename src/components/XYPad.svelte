@@ -1,5 +1,7 @@
-<script type="text/javascript">
+<!-- <script type="text/javascript"> -->
+<script type="typescript">
 import {onMount} from 'svelte'
+import { prevent_default } from 'svelte/internal';
   
     // Variables for referencing the canvas and 2dcanvas context
     var canvas, ctx;
@@ -29,7 +31,7 @@ import {onMount} from 'svelte'
 
     // Clear the canvas context using the canvas width and height
     function clearCanvas(canvas,ctx) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);      
     }
 
     // Keep track of the mouse button being pressed and draw a dot at current location
@@ -56,9 +58,7 @@ import {onMount} from 'svelte'
 
     // Get the current mouse position relative to the top-left of the canvas
     function getMousePos(e) {
-        if (!e)
-            var e = event;
-
+       
         if (e.offsetX) {
             mouseX = e.offsetX;
             mouseY = e.offsetY;
@@ -70,14 +70,15 @@ import {onMount} from 'svelte'
      }
 
     // Draw something when a touch start is detected
-    function sketchpad_touchStart() {
+    function sketchpad_touchStart(e) {
         // Update the touch co-ordinates
-        getTouchPos();
+        getTouchPos(e);
 
         drawDot(ctx,touchX,touchY,12);
 
         // Prevents an additional mousedown event being triggered
-        event.preventDefault();
+        // event.preventDefault();
+        prevent_default
     }
 
     // Draw something and prevent the default scrolling when touch movement is detected
@@ -89,7 +90,8 @@ import {onMount} from 'svelte'
         drawDot(ctx,touchX,touchY,12); 
 
         // Prevent a scrolling action as a result of this touchmove triggering.
-        event.preventDefault();
+        // event.preventDefault();
+        prevent_default
     }
 
     // Get the touch position relative to the top-left of the canvas
@@ -144,7 +146,7 @@ import {onMount} from 'svelte'
          Draw something by tapping or dragging.<br/><br/>
          Works on iOS, Android and desktop/laptop touchscreens using Chrome/Firefox/Safari.<br/><br/>
         </div> -->
-        <input type="submit" value="Clear Sketchpad" id="clearbutton" on:click={clearCanvas(canvas,ctx)}>
+        <input type="submit" value="Clear Sketchpad" id="clearbutton" on:click={() => clearCanvas(canvas,ctx)}>
     <div class="rightside">
         <canvas id="sketchpad" height="300" width="400">
         </canvas>
@@ -162,14 +164,14 @@ import {onMount} from 'svelte'
             -ms-user-select: none;
             user-select: none;
         }
-        .leftside {
+        /* .leftside {
             float:left;
             width:220px;
             height:285px;
             background-color:#def;
             padding:10px;
             border-radius:4px;
-        }
+        } */
         .rightside {
             float:left;
             margin-left:10px;

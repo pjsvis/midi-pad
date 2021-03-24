@@ -11,6 +11,7 @@ import MacroControls from './MacroControls.svelte'
 
 import { prevent_default, set_attributes } from 'svelte/internal';
 import KeyTrap from './KeyTrap.svelte';
+import XYPad from './XYPad.svelte'
 
 // Handle mouse scroll
 const zoom = (event: WheelEvent) => {	
@@ -119,8 +120,9 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 
 <KeyTrap/>
 
+
 <div>	
-	<div class="flex mb2">
+	<div class="flex mb2 fr">
 		<Menu />
 		<MidiSelect />
 	</div>
@@ -134,6 +136,11 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 </div>
 
 
+<div class="flex mt2 mr2">
+
+	<XYPad />
+	
+</div>
 <!-- Inputs and Outputs -->
 <div class="flex mt2">
 	

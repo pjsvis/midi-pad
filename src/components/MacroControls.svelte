@@ -1,13 +1,12 @@
 <script lang="typescript">
   import MacroButton from './MacroButton.svelte' 
-  import {midiPadData} from '../stores/midipad-config'
-      
+  import {initialMidipadConfig} from '../stores/midipad-config'
+
   const btnStyle = 'ba b--blue bw2 b--solid br3 pa2 f6 shadow-5 dim w4 h4 bg-light-red mb3 mr3 pa2 pointer'
   const exBtnStyle = 'button-bare ' + btnStyle
 
-  // TODO: Split into 4 banks
-  const macroStates = midiPadData.macroStates 
-
+  // TODO: Use a reactive store instead
+  const macroStates = initialMidipadConfig.macroStates
   const bank1 = macroStates.slice(0,7)
   const bank2 = macroStates.slice(8,15)
   const bank3 = macroStates.slice(16,23)

@@ -1,8 +1,9 @@
-<!-- <script type="text/javascript"> -->
 <script type="typescript">
 import {onMount} from 'svelte'
 import { prevent_default } from 'svelte/internal';
   
+// Ref: https://zipso.net/a-simple-touchscreen-sketchpad-using-javascript-and-html5/
+
     // Variables for referencing the canvas and 2dcanvas context
     var canvas, ctx;
 
@@ -15,18 +16,21 @@ import { prevent_default } from 'svelte/internal';
     var r,g,b,a
     // Draws a dot at a specific position on the supplied canvas name
     // Parameters are: A canvas context, the x position, the y position, the size of the dot
+    // TODO: See https://codepen.io/falldowngoboone/pen/PwzPYv for mouse trails
     function drawDot(ctx,x,y,size) {
         // Let's use black by setting RGB values to 0, and 255 alpha (completely opaque)
-        r=0; g=0; b=0; a=255;
+        r=0; g=0; b=0; a=30;
 
         // Select a fill style
         ctx.fillStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
-
+        
         // Draw a filled circle
         ctx.beginPath();
         ctx.arc(x, y, size, 0, Math.PI*2, true); 
         ctx.closePath();
         ctx.fill();
+
+       
     } 
 
     // Clear the canvas context using the canvas width and height
@@ -43,6 +47,8 @@ import { prevent_default } from 'svelte/internal';
     // Keep track of the mouse button being released
     function sketchpad_mouseUp() {
         mouseDown=0;
+        clearCanvas(canvas, ctx)
+        drawDot(ctx,mouseX,mouseY,12);
     }
 
     // Keep track of the mouse position and draw a dot if mouse button is currently pressed
@@ -77,8 +83,7 @@ import { prevent_default } from 'svelte/internal';
         drawDot(ctx,touchX,touchY,12);
 
         // Prevents an additional mousedown event being triggered
-        // event.preventDefault();
-        prevent_default
+        e.preventDefault();        
     }
 
     // Draw something and prevent the default scrolling when touch movement is detected
@@ -90,8 +95,7 @@ import { prevent_default } from 'svelte/internal';
         drawDot(ctx,touchX,touchY,12); 
 
         // Prevent a scrolling action as a result of this touchmove triggering.
-        // event.preventDefault();
-        prevent_default
+        e.preventDefault();       
     }
 
     // Get the touch position relative to the top-left of the canvas
@@ -99,10 +103,7 @@ import { prevent_default } from 'svelte/internal';
     // but not the position relative to our target div. We'll adjust them using "target.offsetLeft" and
     // "target.offsetTop" to get the correct values in relation to the top left of the canvas.
     function getTouchPos(e) {
-        // if (!e)
-        //     var e = event;
-
-        if(e.touches) {
+       if(e.touches) {
             if (e.touches.length == 1) { // Only deal with one finger
                 var touch = e.touches[0]; // Get the information for finger #1
                 touchX=touch.pageX-touch.target.offsetLeft;

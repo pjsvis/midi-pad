@@ -15,15 +15,15 @@ const disabledStyle=''
 </script>
 
 
-<button class={exBtnStyle} disabled={isDisabled}>
-  <div>
-    <div><div class="flex flex-column">
-      <div>cc {ccIn} => {ccOut}</div>     
-      <div>{title}</div>
+<button data-scroll class={exBtnStyle} disabled={isDisabled}>
+  <div data-scroll>
+    <div data-scroll><div data-scroll class="flex flex-column">
+      <div data-scroll>cc {ccIn} => {ccOut}</div>     
+      <div data-scroll>{title}</div>
     </div>
-    <div class="fr flex flex-column pr2">
-      <div><i class="fa fa-chevron-up"/></div>
-      <div><i class="fa fa-chevron-down"/></div>
+    <div data-scroll class="fr flex flex-column pr2">
+      <div data-scroll><i data-scroll class="fa fa-chevron-up"/></div>
+      <div data-scroll><i data-scroll class="fa fa-chevron-down"/></div>
     </div>
   </div>
 </button>

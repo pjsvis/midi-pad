@@ -14,51 +14,56 @@ import KeyTrap from './KeyTrap.svelte';
 import XYPad from './XYPad.svelte'
 
 // Handle mouse scroll
-const zoom = (event: WheelEvent) => {	
-	console.log(event)
-	const x = event.clientX
-	const y = event.clientY
+const zoom = (e: WheelEvent) => {	
 	
-	// What element are we scrolling
-	let focussedEl = document.elementFromPoint(x, y);
-	console.log(focussedEl)
+	console.log(e)
+	const x = e.clientX
+	const y = e.clientY
+	
+	const mouseX = e.offsetX;
+    const mouseY = e.offsetY;
 
+	// What element are we scrolling
+	// TODO: Fix detection
+	let focussedEls = document.elementsFromPoint(x, y);
+	let focussedEl = focussedEls[0]
+	console.log('focussedEls', focussedEl)
+	// let focussedEl = document.elementFromPoint(mouseX, mouseY);
+	console.log('focussedEl', focussedEl)
 	
-	let isDataScroll = focussedEl.getAttribute('data-scroll') !== null
-	let isInput = focussedEl instanceof HTMLInputElement
+	
+	let isDataScroll =  focussedEl.getAttribute('data-scroll') !== null
+	console.log('isDataScroll', isDataScroll)
+	// let isInput = focussedEl instanceof HTMLInputElement
 	
 	
 	// Not scrollable input so exit
-	if(!isDataScroll && isInput){return}
+	if(!isDataScroll){return}
 	
 	
-	let inputEl: HTMLInputElement = focussedEl as HTMLInputElement
-
 	// Change value as per scroll direction
-	let currentValue = parseInt(inputEl.value)	
-	var delta = Math.max(-1, Math.min(1, (event.deltaY || -event.detail)));
-	let newValue = delta < 0 ? currentValue + 1 : currentValue - 1
-
-	let inputMax = parseInt(inputEl.max)
-	let inputMin = parseInt(inputEl.min)
-
-	inputEl.value =  Math.min(Math.max(parseInt(newValue.toString()), inputMin), inputMax).toString()
+	var delta = Math.max(-1, Math.min(1, (e.deltaY || -e.detail)));
 	
-	console.log('delta', delta)
-	console.log('newValue', inputEl.value)	
-	prevent_default
+	// TODO: Find out how to stop scrolling NB None of these work
+	// e.stopPropagation(); 
+	// e.stopImmediatePropagation(); 
+	// e.preventDefault
+	// e.preventDefault()
+	
+	console.log('delta', delta)	
+	return false
 	
 }
 
 onMount(async () => {	
 	// Capture mouse wheel
-	document.onwheel = zoom;
+	window.onwheel = zoom;
 
 	// Enable web midi
 	enableWebMidi()
 	isEnabled=true
 	
-	
+
 
 	
 	});

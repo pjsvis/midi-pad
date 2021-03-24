@@ -6846,20 +6846,31 @@ var app = (function () {
     			t7 = space();
     			div4 = element("div");
     			i1 = element("i");
-    			add_location(div0, file$4, 15, 6, 476);
-    			add_location(div1, file$4, 16, 6, 520);
+    			attr_dev(div0, "data-scroll", "");
+    			add_location(div0, file$4, 15, 6, 524);
+    			attr_dev(div1, "data-scroll", "");
+    			add_location(div1, file$4, 16, 6, 580);
+    			attr_dev(div2, "data-scroll", "");
     			attr_dev(div2, "class", "flex flex-column");
-    			add_location(div2, file$4, 14, 9, 438);
+    			add_location(div2, file$4, 14, 21, 474);
+    			attr_dev(i0, "data-scroll", "");
     			attr_dev(i0, "class", "fa fa-chevron-up");
-    			add_location(i0, file$4, 19, 11, 606);
-    			add_location(div3, file$4, 19, 6, 601);
+    			add_location(i0, file$4, 19, 23, 702);
+    			attr_dev(div3, "data-scroll", "");
+    			add_location(div3, file$4, 19, 6, 685);
+    			attr_dev(i1, "data-scroll", "");
     			attr_dev(i1, "class", "fa fa-chevron-down");
-    			add_location(i1, file$4, 20, 11, 654);
-    			add_location(div4, file$4, 20, 6, 649);
+    			add_location(i1, file$4, 20, 23, 774);
+    			attr_dev(div4, "data-scroll", "");
+    			add_location(div4, file$4, 20, 6, 757);
+    			attr_dev(div5, "data-scroll", "");
     			attr_dev(div5, "class", "fr flex flex-column pr2");
-    			add_location(div5, file$4, 18, 4, 556);
-    			add_location(div6, file$4, 14, 4, 433);
-    			add_location(div7, file$4, 13, 2, 422);
+    			add_location(div5, file$4, 18, 4, 628);
+    			attr_dev(div6, "data-scroll", "");
+    			add_location(div6, file$4, 14, 4, 457);
+    			attr_dev(div7, "data-scroll", "");
+    			add_location(div7, file$4, 13, 2, 434);
+    			attr_dev(button, "data-scroll", "");
     			attr_dev(button, "class", /*exBtnStyle*/ ctx[4]);
     			button.disabled = /*isDisabled*/ ctx[3];
     			add_location(button, file$4, 12, 0, 369);
@@ -9110,17 +9121,17 @@ var app = (function () {
     			input.value = "Clear Sketchpad";
     			attr_dev(input, "id", "clearbutton");
     			attr_dev(input, "class", "svelte-1p42njl");
-    			add_location(input, file$2, 123, 8, 5028);
+    			add_location(input, file$2, 122, 8, 5117);
     			attr_dev(canvas_1, "id", "sketchpad");
     			attr_dev(canvas_1, "height", "300");
     			attr_dev(canvas_1, "width", "400");
     			attr_dev(canvas_1, "class", "svelte-1p42njl");
-    			add_location(canvas_1, file$2, 125, 8, 5170);
+    			add_location(canvas_1, file$2, 124, 8, 5259);
     			attr_dev(div0, "class", "rightside svelte-1p42njl");
-    			add_location(div0, file$2, 124, 4, 5137);
+    			add_location(div0, file$2, 123, 4, 5226);
     			attr_dev(div1, "id", "sketchpadapp");
     			attr_dev(div1, "class", "svelte-1p42njl");
-    			add_location(div1, file$2, 117, 0, 4706);
+    			add_location(div1, file$2, 116, 0, 4795);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9177,13 +9188,14 @@ var app = (function () {
 
     	// Draws a dot at a specific position on the supplied canvas name
     	// Parameters are: A canvas context, the x position, the y position, the size of the dot
+    	// TODO: See https://codepen.io/falldowngoboone/pen/PwzPYv for mouse trails
     	function drawDot(ctx, x, y, size) {
     		// Let's use black by setting RGB values to 0, and 255 alpha (completely opaque)
     		r = 0;
 
     		g = 0;
     		b = 0;
-    		a = 255;
+    		a = 30;
 
     		// Select a fill style
     		ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + a / 255 + ")";
@@ -9205,6 +9217,8 @@ var app = (function () {
     	// Keep track of the mouse button being released
     	function sketchpad_mouseUp() {
     		mouseDown = 0;
+    		clearCanvas(canvas, ctx);
+    		drawDot(ctx, mouseX, mouseY, 12);
     	}
 
     	// Keep track of the mouse position and draw a dot if mouse button is currently pressed
@@ -9235,6 +9249,9 @@ var app = (function () {
     		getTouchPos(e);
 
     		drawDot(ctx, touchX, touchY, 12);
+
+    		// Prevents an additional mousedown event being triggered
+    		e.preventDefault();
     	}
 
     	// Draw something and prevent the default scrolling when touch movement is detected
@@ -9244,6 +9261,9 @@ var app = (function () {
 
     		// During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
     		drawDot(ctx, touchX, touchY, 12);
+
+    		// Prevent a scrolling action as a result of this touchmove triggering.
+    		e.preventDefault();
     	}
 
     	// Get the touch position relative to the top-left of the canvas
@@ -9251,8 +9271,6 @@ var app = (function () {
     	// but not the position relative to our target div. We'll adjust them using "target.offsetLeft" and
     	// "target.offsetTop" to get the correct values in relation to the top left of the canvas.
     	function getTouchPos(e) {
-    		// if (!e)
-    		//     var e = event;
     		if (e.touches) {
     			if (e.touches.length == 1) {
     				// Only deal with one finger
@@ -9383,7 +9401,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (122:2) {#each inputs as {id, name, state}}
+    // (127:2) {#each inputs as {id, name, state}}
     function create_each_block_1(ctx) {
     	let div;
     	let t0_value = /*id*/ ctx[12] + "";
@@ -9404,7 +9422,7 @@ var app = (function () {
     			t3 = text(" :: ");
     			t4 = text(t4_value);
     			attr_dev(div, "class", rowClass);
-    			add_location(div, file$1, 122, 2, 4358);
+    			add_location(div, file$1, 127, 2, 4430);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9428,14 +9446,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(122:2) {#each inputs as {id, name, state}}",
+    		source: "(127:2) {#each inputs as {id, name, state}}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (129:2) {#each outputs as {id, name, state}}
+    // (134:2) {#each outputs as {id, name, state}}
     function create_each_block(ctx) {
     	let div;
     	let t0_value = /*id*/ ctx[12] + "";
@@ -9456,7 +9474,7 @@ var app = (function () {
     			t3 = text(" :: ");
     			t4 = text(t4_value);
     			attr_dev(div, "class", rowClass);
-    			add_location(div, file$1, 129, 2, 4548);
+    			add_location(div, file$1, 134, 2, 4620);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9480,7 +9498,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(129:2) {#each outputs as {id, name, state}}",
+    		source: "(134:2) {#each outputs as {id, name, state}}",
     		ctx
     	});
 
@@ -9612,45 +9630,45 @@ var app = (function () {
     			div14 = element("div");
     			create_component(macrocontrols.$$.fragment);
     			attr_dev(div0, "class", "flex mb2 fr");
-    			add_location(div0, file$1, 97, 1, 3583);
+    			add_location(div0, file$1, 102, 1, 3655);
 
     			attr_dev(i0, "class", i0_class_value = /*isEnabled*/ ctx[0]
     			? /*isEnabledStyle*/ ctx[4]
     			: /*isNotEnabledStyle*/ ctx[3]);
 
-    			add_location(i0, file$1, 102, 63, 3735);
+    			add_location(i0, file$1, 107, 63, 3807);
     			attr_dev(div1, "class", btnStyle);
-    			add_location(div1, file$1, 102, 2, 3674);
+    			add_location(div1, file$1, 107, 2, 3746);
 
     			attr_dev(i1, "class", i1_class_value = /*isEnabled*/ ctx[0]
     			? /*isEnabledStyle*/ ctx[4]
     			: /*isNotEnabledStyle*/ ctx[3]);
 
-    			add_location(i1, file$1, 103, 65, 3867);
+    			add_location(i1, file$1, 108, 65, 3939);
     			attr_dev(div2, "class", btnStyle);
-    			add_location(div2, file$1, 103, 2, 3804);
+    			add_location(div2, file$1, 108, 2, 3876);
     			attr_dev(div3, "class", btnStyle);
-    			add_location(div3, file$1, 104, 2, 3936);
+    			add_location(div3, file$1, 109, 2, 4008);
     			attr_dev(div4, "class", btnStyle);
-    			add_location(div4, file$1, 105, 2, 4000);
+    			add_location(div4, file$1, 110, 2, 4072);
     			attr_dev(div5, "class", btnStyle);
-    			add_location(div5, file$1, 106, 2, 4069);
+    			add_location(div5, file$1, 111, 2, 4141);
     			attr_dev(div6, "class", "flex");
-    			add_location(div6, file$1, 101, 1, 3650);
-    			add_location(div7, file$1, 96, 0, 3574);
+    			add_location(div6, file$1, 106, 1, 3722);
+    			add_location(div7, file$1, 101, 0, 3646);
     			attr_dev(div8, "class", "flex mt2 mr2");
-    			add_location(div8, file$1, 111, 0, 4153);
+    			add_location(div8, file$1, 116, 0, 4225);
     			attr_dev(div9, "class", rowTitleClass);
-    			add_location(div9, file$1, 120, 2, 4274);
-    			add_location(div10, file$1, 119, 1, 4263);
+    			add_location(div9, file$1, 125, 2, 4346);
+    			add_location(div10, file$1, 124, 1, 4335);
     			attr_dev(div11, "class", rowTitleClass);
-    			add_location(div11, file$1, 127, 2, 4462);
+    			add_location(div11, file$1, 132, 2, 4534);
     			attr_dev(div12, "class", "ml2");
-    			add_location(div12, file$1, 126, 1, 4437);
+    			add_location(div12, file$1, 131, 1, 4509);
     			attr_dev(div13, "class", "flex mt2");
-    			add_location(div13, file$1, 117, 0, 4235);
+    			add_location(div13, file$1, 122, 0, 4307);
     			attr_dev(div14, "class", "flex mt2");
-    			add_location(div14, file$1, 135, 0, 4636);
+    			add_location(div14, file$1, 140, 0, 4708);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9879,40 +9897,48 @@ var app = (function () {
     	
 
     	// Handle mouse scroll
-    	const zoom = event => {
-    		console.log(event);
-    		const x = event.clientX;
-    		const y = event.clientY;
+    	const zoom = e => {
+    		console.log(e);
+    		const x = e.clientX;
+    		const y = e.clientY;
+    		e.offsetX;
+    		e.offsetY;
 
     		// What element are we scrolling
-    		let focussedEl = document.elementFromPoint(x, y);
+    		// TODO: Fix detection
+    		let focussedEls = document.elementsFromPoint(x, y);
 
-    		console.log(focussedEl);
+    		let focussedEl = focussedEls[0];
+    		console.log("focussedEls", focussedEl);
+
+    		// let focussedEl = document.elementFromPoint(mouseX, mouseY);
+    		console.log("focussedEl", focussedEl);
+
     		let isDataScroll = focussedEl.getAttribute("data-scroll") !== null;
-    		let isInput = focussedEl instanceof HTMLInputElement;
+    		console.log("isDataScroll", isDataScroll);
 
+    		// let isInput = focussedEl instanceof HTMLInputElement
     		// Not scrollable input so exit
-    		if (!isDataScroll && isInput) {
+    		if (!isDataScroll) {
     			return;
     		}
 
-    		let inputEl = focussedEl;
-
     		// Change value as per scroll direction
-    		let currentValue = parseInt(inputEl.value);
+    		var delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
 
-    		var delta = Math.max(-1, Math.min(1, event.deltaY || -event.detail));
-    		let newValue = delta < 0 ? currentValue + 1 : currentValue - 1;
-    		let inputMax = parseInt(inputEl.max);
-    		let inputMin = parseInt(inputEl.min);
-    		inputEl.value = Math.min(Math.max(parseInt(newValue.toString()), inputMin), inputMax).toString();
+    		// TODO: Find out how to stop scrolling NB None of these work
+    		// e.stopPropagation(); 
+    		// e.stopImmediatePropagation(); 
+    		// e.preventDefault
+    		// e.preventDefault()
     		console.log("delta", delta);
-    		console.log("newValue", inputEl.value);
+
+    		return false;
     	};
 
     	onMount(() => __awaiter(void 0, void 0, void 0, function* () {
     		// Capture mouse wheel
-    		document.onwheel = zoom;
+    		window.onwheel = zoom;
 
     		// Enable web midi
     		enableWebMidi();

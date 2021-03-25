@@ -147,13 +147,119 @@ import { prevent_default } from 'svelte/internal';
          Draw something by tapping or dragging.<br/><br/>
          Works on iOS, Android and desktop/laptop touchscreens using Chrome/Firefox/Safari.<br/><br/>
         </div> -->
-        <input type="submit" value="Clear Sketchpad" id="clearbutton" on:click={() => clearCanvas(canvas,ctx)}>
+        <!-- <input type="submit" value="Clear Sketchpad" id="clearbutton" on:click={() => clearCanvas(canvas,ctx)}> -->
     <div class="rightside">
         <canvas id="sketchpad" height="300" width="400">
         </canvas>
     </div>
 </div>
 
+<div>
+
+    <div id="xypad">
+        <div class="header">
+                <button id="xypad-cal" style="float:right">calibrate</button>
+                <span id="xy">184, 106</span>
+                <div>XY PAD</div>
+        </div>
+    </div>
+</div>
+<h1>hello</h1>
+<div id="xy-conf" data-children-count="2">
+        X:
+        <select id="x-cc" style="background:transparent">
+                <option value="cc-16">Filter freq</option>
+                <option value="cc-82">Resonance</option>
+                <option value="cc-85">Filter env</option>
+                <option value="cc-17">Filter LFO 2</option>
+                <option value="cc-94">Distortion</option>
+                <option value="cc-115">Osc 2 filter mod</option>
+                <option value="cc-86">LFO 1 delay</option>
+                <option value="cc-18">LFO 1 speed</option>
+                <option value="cc-87">LFO 2 delay</option>
+                <option value="cc-19">LFO 2 speed</option>
+                <option value="cc-27">Osc 1 coarse</option>
+                <option value="cc-26">Osc 1 fine</option>
+                <option value="cc-71">Osc 1 mod env</option>
+                <option value="cc-28">Osc 1 mod LFO 1</option>
+                <option value="cc-72">Osc 1 PWM env</option>
+                <option value="cc-73">Osc 1 PWM LFO 2</option>
+                <option value="cc-30">Osc 2 coarse</option>
+                <option value="cc-29">Osc 2 fine</option>
+                <option value="cc-76">Osc 2 mod env</option>
+                <option value="cc-31">Osc 2 mod LFO 1</option>
+                <option value="cc-77">Osc 2 PWM env</option>
+                <option value="cc-78">Osc 2 PWM LFO 2</option>
+                <option value="cc-22">Mix sub</option>
+                <option value="cc-20">Mix osc 1</option>
+                <option value="cc-21">Mix osc 2</option>
+                <option value="cc-24">Mix ring</option>
+                <option value="cc-23">Mix noise</option>
+                <option value="cc-25">Mix ext</option>
+                <option value="cc-102">Mod env attack</option>
+                <option value="cc-103">Mod env decay</option>
+                <option value="cc-104">Mod env sustain</option>
+                <option value="cc-105">Mod env release</option>
+                <option value="cc-90">Amp env attack</option>
+                <option value="cc-91">Amp env decay</option>
+                <option value="cc-92">Amp env sustain</option>
+                <option value="cc-93">Amp env release</option>
+        </select>
+        Y:
+        <select id="y-cc" style="background:transparent">
+                <option value="cc-16">Filter freq</option>
+                <option value="cc-82">Resonance</option>
+                <option value="cc-85">Filter env</option>
+                <option value="cc-17">Filter LFO 2</option>
+                <option value="cc-94">Distortion</option>
+                <option value="cc-115">Osc 2 filter mod</option>
+                <option value="cc-86">LFO 1 delay</option>
+                <option value="cc-18">LFO 1 speed</option>
+                <option value="cc-87">LFO 2 delay</option>
+                <option value="cc-19">LFO 2 speed</option>
+                <option value="cc-27">Osc 1 coarse</option>
+                <option value="cc-26">Osc 1 fine</option>
+                <option value="cc-71">Osc 1 mod env</option>
+                <option value="cc-28">Osc 1 mod LFO 1</option>
+                <option value="cc-72">Osc 1 PWM env</option>
+                <option value="cc-73">Osc 1 PWM LFO 2</option>
+                <option value="cc-30">Osc 2 coarse</option>
+                <option value="cc-29">Osc 2 fine</option>
+                <option value="cc-76">Osc 2 mod env</option>
+                <option value="cc-31">Osc 2 mod LFO 1</option>
+                <option value="cc-77">Osc 2 PWM env</option>
+                <option value="cc-78">Osc 2 PWM LFO 2</option>
+                <option value="cc-22">Mix sub</option>
+                <option value="cc-20">Mix osc 1</option>
+                <option value="cc-21">Mix osc 2</option>
+                <option value="cc-24">Mix ring</option>
+                <option value="cc-23">Mix noise</option>
+                <option value="cc-25">Mix ext</option>
+                <option value="cc-102">Mod env attack</option>
+                <option value="cc-103">Mod env decay</option>
+                <option value="cc-104">Mod env sustain</option>
+                <option value="cc-105">Mod env release</option>
+                <option value="cc-90">Amp env attack</option>
+                <option value="cc-91">Amp env decay</option>
+                <option value="cc-92">Amp env sustain</option>
+                <option value="cc-93">Amp env release</option>
+        </select>
+</div>
+
+<div id="grid-container">
+        <svg id="pad" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                <path d="M 0 50 L 100 50" stroke="#aaa" stroke-width="1px" vector-effect="non-scaling-stroke"></path>
+                <path d="M 50 0 L 50 100" stroke="#aaa" stroke-width="1px" vector-effect="non-scaling-stroke"></path>
+                <path d="M 0 0 L 100 100" stroke="#777" stroke-width="1px" vector-effect="non-scaling-stroke"></path>
+                <path d="M 0 100 L 100 0" stroke="#777" stroke-width="1px" vector-effect="non-scaling-stroke"></path>
+                <path d="M 25 0 L 25 100" stroke="#555" stroke-width="1px" vector-effect="non-scaling-stroke"></path>
+                <path d="M 75 0 L 75 100" stroke="#555" stroke-width="1px" vector-effect="non-scaling-stroke"></path>
+                <path d="M 0 25 L 100 25" stroke="#555" stroke-width="1px" vector-effect="non-scaling-stroke"></path>
+                <path d="M 0 75 L 100 75" stroke="#555" stroke-width="1px" vector-effect="non-scaling-stroke"></path>
+                <circle id="dot" cx="72.16082688682312" cy="16.355717350321783" r="5" fill-opacity="0.66"></circle>
+                <rect id="pad-zone" x="0" y="0" width="100" height="100" stroke-width="0" fill="#333" fill-opacity="0.25"></rect>
+        </svg>
+</div>
     <style>
         /* Some CSS styling */
         #sketchpadapp {
@@ -184,6 +290,7 @@ import { prevent_default } from 'svelte/internal';
             border:2px solid #888;
             border-radius:4px;
             position:relative; /* Necessary for correct mouse co-ords in Firefox */
+            cursor: grab;
         }
         #clearbutton {
             font-size: 15px;

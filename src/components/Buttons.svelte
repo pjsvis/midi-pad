@@ -13,51 +13,50 @@ import { prevent_default, set_attributes } from 'svelte/internal';
 import KeyTrap from './KeyTrap.svelte';
 import XYPad from './XYPad.svelte'
 
-// Handle mouse scroll
-const zoom = (e: WheelEvent) => {	
-	
+
+// Ref: https://www.geeksforgeeks.org/how-to-disable-scrolling-temporarily-using-javascript/
+// Poss use https://www.npmjs.com/package/quietwheel
+// function disableScroll() {
+//     document.body.classList.add("body.stop-scrolling");
+// }
+  
+// function enableScroll() {
+//     document.body.classList.remove("body.stop-scrolling");
+// }
+
+// Handle mouse wheel scroll
+const handleWheel = (e: WheelEvent) => {		
+	// disableScroll()
 	console.log(e)
 	const x = e.clientX
 	const y = e.clientY
-	
-	const mouseX = e.offsetX;
-    const mouseY = e.offsetY;
 
 	// What element are we scrolling
-	// TODO: Fix detection
-	let focussedEls = document.elementsFromPoint(x, y);
-	let focussedEl = focussedEls[0]
-	console.log('focussedEls', focussedEl)
-	// let focussedEl = document.elementFromPoint(mouseX, mouseY);
-	console.log('focussedEl', focussedEl)
-	
-	
+	let focussedEl = document.elementsFromPoint(x, y)[0];
+	// let focussedEl = focussedEls[0]
+	console.log('focussedEls', focussedEl)	
 	let isDataScroll =  focussedEl.getAttribute('data-scroll') !== null
 	console.log('isDataScroll', isDataScroll)
-	// let isInput = focussedEl instanceof HTMLInputElement
-	
 	
 	// Not scrollable input so exit
 	if(!isDataScroll){return}
-	
-	
-	// Change value as per scroll direction
-	var delta = Math.max(-1, Math.min(1, (e.deltaY || -e.detail)));
-	
-	// TODO: Find out how to stop scrolling NB None of these work
-	// e.stopPropagation(); 
-	// e.stopImmediatePropagation(); 
-	// e.preventDefault
-	// e.preventDefault()
-	
-	console.log('delta', delta)	
-	return false
-	
+		
+	// Get the cc to send to
+	const cc = focussedEl.getAttribute('data-cc')	
+	console.log('focussedCC: ', cc)
+	// var delta = Math.max(-1, Math.min(1, (e.deltaY || -e.detail)));	
+	const delta = e.deltaY || e.detail
+	// TODO: Stash inc in a store
+	delta < 0 ? incCC14() : decCC14()
+
+
+	// enableScroll()	
 }
+
 
 onMount(async () => {	
 	// Capture mouse wheel
-	window.onwheel = zoom;
+	window.onwheel = handleWheel
 
 	// Enable web midi
 	enableWebMidi()
@@ -109,6 +108,31 @@ const handleSendNotes = () => {
 	playNote(port, note)
 }
 
+
+let cc14Val: number = 0.0
+
+const fixCCValue = (val: number): number => {
+	if(val > 127){return 127}
+	if(val < 0){return 0}
+	return val
+}
+const incAmount = 5
+const incCC14 = () =>{
+	cc14Val += incAmount
+	console.log('cc14Val inc', cc14Val)
+	cc14Val = fixCCValue(cc14Val)
+	console.log('cc14Val send', cc14Val)
+	sendCc(8, 14, cc14Val)
+}
+
+const decCC14 = () =>{
+	cc14Val -= incAmount
+	console.log('cc14Val dec', cc14Val)
+	cc14Val = fixCCValue(cc14Val)
+	console.log('cc14Val send', cc14Val)
+	sendCc(8, 14, cc14Val)
+}
+
 const handleSendCc = () => {
 	const value = 127
 	const port = 6
@@ -132,7 +156,7 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 		<MidiSelect />
 	</div>
 	<div class="flex">		
-		<div class={btnStyle} on:click={handleEnable}>Enable WebMidi <i class={isEnabled ? isEnabledStyle : isNotEnabledStyle}/></div>
+		<div class={btnStyle} on:click={handleEnable}>Enable WebMidi XXX <i class={isEnabled ? isEnabledStyle : isNotEnabledStyle}/></div>
 		<div class={btnStyle} on:click={handleDisable}>Disable WebMidi <i class={isEnabled ? isEnabledStyle : isNotEnabledStyle}/></div>
 		<div class={btnStyle} on:click={handleShowIO}>Show I/O</div>
 		<div class={btnStyle} on:click={handleSendNotes}>Send Notes</div>
@@ -141,11 +165,6 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 </div>
 
 
-<div class="flex mt2 mr2">
-
-	<XYPad />
-	
-</div>
 <!-- Inputs and Outputs -->
 <div class="flex mt2">
 	
@@ -153,6 +172,7 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 		<div class={rowTitleClass}>Inputs</div>  
 		{#each inputs as {id, name, state}}
 		<div class={rowClass}>{id} :: {name} :: {state}</div>
+		{:else} <div></div>}
 		{/each}
 	</div>
 	
@@ -160,18 +180,30 @@ const rowClass="bl br bb b--black-10 pa2 tl f6"
 		<div class={rowTitleClass}>Outputs</div>  
 		{#each outputs as {id, name, state}}
 		<div class={rowClass}>{id} :: {name} :: {state}</div>
+		{:else} <div></div>}
 		{/each}
 	</div>
 	
 </div>
 
-<div class="flex mt2">
-	<MacroControls />
-</div>
+<div class="flex">
 
+	<div class="flex mt2 mr2">
+		
+		<XYPad />		
+	</div>
+	
+	<div class="flex mt2">
+		<MacroControls />
+	</div>
+</div>
 
 
 <style>
 
-
+body.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+	margin-left: -17px;
+}
 </style>

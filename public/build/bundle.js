@@ -6806,73 +6806,47 @@ var app = (function () {
 
     function create_fragment$5(ctx) {
     	let button;
-    	let div7;
-    	let div6;
-    	let div2;
+    	let div4;
+    	let div3;
+    	let div1;
     	let div0;
     	let t0;
     	let t1;
     	let t2;
-    	let t3;
-    	let t4;
-    	let div1;
-    	let t5;
-    	let t6;
-    	let div5;
-    	let div3;
-    	let i0;
-    	let t7;
-    	let div4;
-    	let i1;
+    	let div2;
 
     	const block = {
     		c: function create() {
     			button = element("button");
-    			div7 = element("div");
-    			div6 = element("div");
-    			div2 = element("div");
-    			div0 = element("div");
-    			t0 = text("cc ");
-    			t1 = text(/*ccIn*/ ctx[1]);
-    			t2 = text(" => ");
-    			t3 = text(/*ccOut*/ ctx[2]);
-    			t4 = space();
-    			div1 = element("div");
-    			t5 = text(/*title*/ ctx[0]);
-    			t6 = space();
-    			div5 = element("div");
-    			div3 = element("div");
-    			i0 = element("i");
-    			t7 = space();
     			div4 = element("div");
-    			i1 = element("i");
+    			div3 = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
+    			t0 = text("CC");
+    			t1 = text(/*ccOut*/ ctx[0]);
+    			t2 = space();
+    			div2 = element("div");
     			attr_dev(div0, "data-scroll", "");
-    			add_location(div0, file$4, 15, 6, 524);
+    			attr_dev(div0, "data-cc", /*ccOut*/ ctx[0]);
+    			add_location(div0, file$4, 16, 6, 667);
     			attr_dev(div1, "data-scroll", "");
-    			add_location(div1, file$4, 16, 6, 580);
+    			attr_dev(div1, "data-cc", /*ccOut*/ ctx[0]);
+    			attr_dev(div1, "class", "flex flex-column");
+    			add_location(div1, file$4, 14, 37, 522);
     			attr_dev(div2, "data-scroll", "");
-    			attr_dev(div2, "class", "flex flex-column");
-    			add_location(div2, file$4, 14, 21, 474);
-    			attr_dev(i0, "data-scroll", "");
-    			attr_dev(i0, "class", "fa fa-chevron-up");
-    			add_location(i0, file$4, 19, 23, 702);
+    			attr_dev(div2, "data-cc", /*ccOut*/ ctx[0]);
+    			attr_dev(div2, "class", "fr flex flex-column pr2");
+    			add_location(div2, file$4, 19, 4, 801);
     			attr_dev(div3, "data-scroll", "");
-    			add_location(div3, file$4, 19, 6, 685);
-    			attr_dev(i1, "data-scroll", "");
-    			attr_dev(i1, "class", "fa fa-chevron-down");
-    			add_location(i1, file$4, 20, 23, 774);
+    			attr_dev(div3, "data-cc", /*ccOut*/ ctx[0]);
+    			add_location(div3, file$4, 14, 4, 489);
     			attr_dev(div4, "data-scroll", "");
-    			add_location(div4, file$4, 20, 6, 757);
-    			attr_dev(div5, "data-scroll", "");
-    			attr_dev(div5, "class", "fr flex flex-column pr2");
-    			add_location(div5, file$4, 18, 4, 628);
-    			attr_dev(div6, "data-scroll", "");
-    			add_location(div6, file$4, 14, 4, 457);
-    			attr_dev(div7, "data-scroll", "");
-    			add_location(div7, file$4, 13, 2, 434);
+    			attr_dev(div4, "data-cc", /*ccOut*/ ctx[0]);
+    			add_location(div4, file$4, 13, 2, 450);
     			attr_dev(button, "data-scroll", "");
-    			attr_dev(button, "class", /*exBtnStyle*/ ctx[4]);
-    			button.disabled = /*isDisabled*/ ctx[3];
+    			attr_dev(button, "data-cc", /*ccOut*/ ctx[0]);
+    			attr_dev(button, "class", /*exBtnStyle*/ ctx[2]);
+    			button.disabled = /*isDisabled*/ ctx[1];
     			add_location(button, file$4, 12, 0, 369);
     		},
     		l: function claim(nodes) {
@@ -6880,32 +6854,44 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
-    			append_dev(button, div7);
-    			append_dev(div7, div6);
-    			append_dev(div6, div2);
-    			append_dev(div2, div0);
+    			append_dev(button, div4);
+    			append_dev(div4, div3);
+    			append_dev(div3, div1);
+    			append_dev(div1, div0);
     			append_dev(div0, t0);
     			append_dev(div0, t1);
-    			append_dev(div0, t2);
-    			append_dev(div0, t3);
-    			append_dev(div2, t4);
-    			append_dev(div2, div1);
-    			append_dev(div1, t5);
-    			append_dev(div6, t6);
-    			append_dev(div6, div5);
-    			append_dev(div5, div3);
-    			append_dev(div3, i0);
-    			append_dev(div5, t7);
-    			append_dev(div5, div4);
-    			append_dev(div4, i1);
+    			append_dev(div3, t2);
+    			append_dev(div3, div2);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*ccIn*/ 2) set_data_dev(t1, /*ccIn*/ ctx[1]);
-    			if (dirty & /*ccOut*/ 4) set_data_dev(t3, /*ccOut*/ ctx[2]);
-    			if (dirty & /*title*/ 1) set_data_dev(t5, /*title*/ ctx[0]);
+    			if (dirty & /*ccOut*/ 1) set_data_dev(t1, /*ccOut*/ ctx[0]);
 
-    			if (dirty & /*isDisabled*/ 8) {
-    				prop_dev(button, "disabled", /*isDisabled*/ ctx[3]);
+    			if (dirty & /*ccOut*/ 1) {
+    				attr_dev(div0, "data-cc", /*ccOut*/ ctx[0]);
+    			}
+
+    			if (dirty & /*ccOut*/ 1) {
+    				attr_dev(div1, "data-cc", /*ccOut*/ ctx[0]);
+    			}
+
+    			if (dirty & /*ccOut*/ 1) {
+    				attr_dev(div2, "data-cc", /*ccOut*/ ctx[0]);
+    			}
+
+    			if (dirty & /*ccOut*/ 1) {
+    				attr_dev(div3, "data-cc", /*ccOut*/ ctx[0]);
+    			}
+
+    			if (dirty & /*ccOut*/ 1) {
+    				attr_dev(div4, "data-cc", /*ccOut*/ ctx[0]);
+    			}
+
+    			if (dirty & /*ccOut*/ 1) {
+    				attr_dev(button, "data-cc", /*ccOut*/ ctx[0]);
+    			}
+
+    			if (dirty & /*isDisabled*/ 2) {
+    				prop_dev(button, "disabled", /*isDisabled*/ ctx[1]);
     			}
     		},
     		i: noop,
@@ -6926,7 +6912,7 @@ var app = (function () {
     	return block;
     }
 
-    const btnStyle$2 = "ba b--blue bw2 b--solid br3 pa2 f6 shadow-5 dim w4 h4  white mb3 mr3 pa2 pointer";
+    const btnStyle$2 = "ba b--blue bw2 b--solid br3 pa2 f6 shadow-5 dim w3 h3  white mb3 mr3 pa2 pointer";
     const disabledStyle = "";
 
     function instance$5($$self, $$props, $$invalidate) {
@@ -6945,11 +6931,11 @@ var app = (function () {
     	});
 
     	$$self.$$set = $$props => {
-    		if ("id" in $$props) $$invalidate(5, id = $$props.id);
-    		if ("title" in $$props) $$invalidate(0, title = $$props.title);
-    		if ("ccIn" in $$props) $$invalidate(1, ccIn = $$props.ccIn);
-    		if ("ccOut" in $$props) $$invalidate(2, ccOut = $$props.ccOut);
-    		if ("isDisabled" in $$props) $$invalidate(3, isDisabled = $$props.isDisabled);
+    		if ("id" in $$props) $$invalidate(3, id = $$props.id);
+    		if ("title" in $$props) $$invalidate(4, title = $$props.title);
+    		if ("ccIn" in $$props) $$invalidate(5, ccIn = $$props.ccIn);
+    		if ("ccOut" in $$props) $$invalidate(0, ccOut = $$props.ccOut);
+    		if ("isDisabled" in $$props) $$invalidate(1, isDisabled = $$props.isDisabled);
     	};
 
     	$$self.$capture_state = () => ({
@@ -6964,18 +6950,18 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("id" in $$props) $$invalidate(5, id = $$props.id);
-    		if ("title" in $$props) $$invalidate(0, title = $$props.title);
-    		if ("ccIn" in $$props) $$invalidate(1, ccIn = $$props.ccIn);
-    		if ("ccOut" in $$props) $$invalidate(2, ccOut = $$props.ccOut);
-    		if ("isDisabled" in $$props) $$invalidate(3, isDisabled = $$props.isDisabled);
+    		if ("id" in $$props) $$invalidate(3, id = $$props.id);
+    		if ("title" in $$props) $$invalidate(4, title = $$props.title);
+    		if ("ccIn" in $$props) $$invalidate(5, ccIn = $$props.ccIn);
+    		if ("ccOut" in $$props) $$invalidate(0, ccOut = $$props.ccOut);
+    		if ("isDisabled" in $$props) $$invalidate(1, isDisabled = $$props.isDisabled);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [title, ccIn, ccOut, isDisabled, exBtnStyle, id];
+    	return [ccOut, isDisabled, exBtnStyle, id, title, ccIn];
     }
 
     class MacroButton extends SvelteComponentDev {
@@ -6983,11 +6969,11 @@ var app = (function () {
     		super(options);
 
     		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
-    			id: 5,
-    			title: 0,
-    			ccIn: 1,
-    			ccOut: 2,
-    			isDisabled: 3
+    			id: 3,
+    			title: 4,
+    			ccIn: 5,
+    			ccOut: 0,
+    			isDisabled: 1
     		});
 
     		dispatch_dev("SvelteRegisterComponent", {
@@ -7000,23 +6986,23 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*id*/ ctx[5] === undefined && !("id" in props)) {
+    		if (/*id*/ ctx[3] === undefined && !("id" in props)) {
     			console.warn("<MacroButton> was created without expected prop 'id'");
     		}
 
-    		if (/*title*/ ctx[0] === undefined && !("title" in props)) {
+    		if (/*title*/ ctx[4] === undefined && !("title" in props)) {
     			console.warn("<MacroButton> was created without expected prop 'title'");
     		}
 
-    		if (/*ccIn*/ ctx[1] === undefined && !("ccIn" in props)) {
+    		if (/*ccIn*/ ctx[5] === undefined && !("ccIn" in props)) {
     			console.warn("<MacroButton> was created without expected prop 'ccIn'");
     		}
 
-    		if (/*ccOut*/ ctx[2] === undefined && !("ccOut" in props)) {
+    		if (/*ccOut*/ ctx[0] === undefined && !("ccOut" in props)) {
     			console.warn("<MacroButton> was created without expected prop 'ccOut'");
     		}
 
-    		if (/*isDisabled*/ ctx[3] === undefined && !("isDisabled" in props)) {
+    		if (/*isDisabled*/ ctx[1] === undefined && !("isDisabled" in props)) {
     			console.warn("<MacroButton> was created without expected prop 'isDisabled'");
     		}
     	}
@@ -9103,58 +9089,727 @@ var app = (function () {
 
     function create_fragment$2(ctx) {
     	let div1;
-    	let input;
-    	let t;
     	let div0;
     	let canvas_1;
-    	let mounted;
-    	let dispose;
+    	let t0;
+    	let div5;
+    	let div4;
+    	let div3;
+    	let button;
+    	let t2;
+    	let span;
+    	let t4;
+    	let div2;
+    	let t6;
+    	let h1;
+    	let t8;
+    	let div6;
+    	let t9;
+    	let select0;
+    	let option0;
+    	let option1;
+    	let option2;
+    	let option3;
+    	let option4;
+    	let option5;
+    	let option6;
+    	let option7;
+    	let option8;
+    	let option9;
+    	let option10;
+    	let option11;
+    	let option12;
+    	let option13;
+    	let option14;
+    	let option15;
+    	let option16;
+    	let option17;
+    	let option18;
+    	let option19;
+    	let option20;
+    	let option21;
+    	let option22;
+    	let option23;
+    	let option24;
+    	let option25;
+    	let option26;
+    	let option27;
+    	let option28;
+    	let option29;
+    	let option30;
+    	let option31;
+    	let option32;
+    	let option33;
+    	let option34;
+    	let option35;
+    	let t46;
+    	let select1;
+    	let option36;
+    	let option37;
+    	let option38;
+    	let option39;
+    	let option40;
+    	let option41;
+    	let option42;
+    	let option43;
+    	let option44;
+    	let option45;
+    	let option46;
+    	let option47;
+    	let option48;
+    	let option49;
+    	let option50;
+    	let option51;
+    	let option52;
+    	let option53;
+    	let option54;
+    	let option55;
+    	let option56;
+    	let option57;
+    	let option58;
+    	let option59;
+    	let option60;
+    	let option61;
+    	let option62;
+    	let option63;
+    	let option64;
+    	let option65;
+    	let option66;
+    	let option67;
+    	let option68;
+    	let option69;
+    	let option70;
+    	let option71;
+    	let t83;
+    	let div7;
+    	let svg;
+    	let path0;
+    	let path1;
+    	let path2;
+    	let path3;
+    	let path4;
+    	let path5;
+    	let path6;
+    	let path7;
+    	let circle;
+    	let rect;
 
     	const block = {
     		c: function create() {
     			div1 = element("div");
-    			input = element("input");
-    			t = space();
     			div0 = element("div");
     			canvas_1 = element("canvas");
-    			attr_dev(input, "type", "submit");
-    			input.value = "Clear Sketchpad";
-    			attr_dev(input, "id", "clearbutton");
-    			attr_dev(input, "class", "svelte-1p42njl");
-    			add_location(input, file$2, 122, 8, 5117);
+    			t0 = space();
+    			div5 = element("div");
+    			div4 = element("div");
+    			div3 = element("div");
+    			button = element("button");
+    			button.textContent = "calibrate";
+    			t2 = space();
+    			span = element("span");
+    			span.textContent = "184, 106";
+    			t4 = space();
+    			div2 = element("div");
+    			div2.textContent = "XY PAD";
+    			t6 = space();
+    			h1 = element("h1");
+    			h1.textContent = "hello";
+    			t8 = space();
+    			div6 = element("div");
+    			t9 = text("X:\r\n        ");
+    			select0 = element("select");
+    			option0 = element("option");
+    			option0.textContent = "Filter freq";
+    			option1 = element("option");
+    			option1.textContent = "Resonance";
+    			option2 = element("option");
+    			option2.textContent = "Filter env";
+    			option3 = element("option");
+    			option3.textContent = "Filter LFO 2";
+    			option4 = element("option");
+    			option4.textContent = "Distortion";
+    			option5 = element("option");
+    			option5.textContent = "Osc 2 filter mod";
+    			option6 = element("option");
+    			option6.textContent = "LFO 1 delay";
+    			option7 = element("option");
+    			option7.textContent = "LFO 1 speed";
+    			option8 = element("option");
+    			option8.textContent = "LFO 2 delay";
+    			option9 = element("option");
+    			option9.textContent = "LFO 2 speed";
+    			option10 = element("option");
+    			option10.textContent = "Osc 1 coarse";
+    			option11 = element("option");
+    			option11.textContent = "Osc 1 fine";
+    			option12 = element("option");
+    			option12.textContent = "Osc 1 mod env";
+    			option13 = element("option");
+    			option13.textContent = "Osc 1 mod LFO 1";
+    			option14 = element("option");
+    			option14.textContent = "Osc 1 PWM env";
+    			option15 = element("option");
+    			option15.textContent = "Osc 1 PWM LFO 2";
+    			option16 = element("option");
+    			option16.textContent = "Osc 2 coarse";
+    			option17 = element("option");
+    			option17.textContent = "Osc 2 fine";
+    			option18 = element("option");
+    			option18.textContent = "Osc 2 mod env";
+    			option19 = element("option");
+    			option19.textContent = "Osc 2 mod LFO 1";
+    			option20 = element("option");
+    			option20.textContent = "Osc 2 PWM env";
+    			option21 = element("option");
+    			option21.textContent = "Osc 2 PWM LFO 2";
+    			option22 = element("option");
+    			option22.textContent = "Mix sub";
+    			option23 = element("option");
+    			option23.textContent = "Mix osc 1";
+    			option24 = element("option");
+    			option24.textContent = "Mix osc 2";
+    			option25 = element("option");
+    			option25.textContent = "Mix ring";
+    			option26 = element("option");
+    			option26.textContent = "Mix noise";
+    			option27 = element("option");
+    			option27.textContent = "Mix ext";
+    			option28 = element("option");
+    			option28.textContent = "Mod env attack";
+    			option29 = element("option");
+    			option29.textContent = "Mod env decay";
+    			option30 = element("option");
+    			option30.textContent = "Mod env sustain";
+    			option31 = element("option");
+    			option31.textContent = "Mod env release";
+    			option32 = element("option");
+    			option32.textContent = "Amp env attack";
+    			option33 = element("option");
+    			option33.textContent = "Amp env decay";
+    			option34 = element("option");
+    			option34.textContent = "Amp env sustain";
+    			option35 = element("option");
+    			option35.textContent = "Amp env release";
+    			t46 = text("\r\n        Y:\r\n        ");
+    			select1 = element("select");
+    			option36 = element("option");
+    			option36.textContent = "Filter freq";
+    			option37 = element("option");
+    			option37.textContent = "Resonance";
+    			option38 = element("option");
+    			option38.textContent = "Filter env";
+    			option39 = element("option");
+    			option39.textContent = "Filter LFO 2";
+    			option40 = element("option");
+    			option40.textContent = "Distortion";
+    			option41 = element("option");
+    			option41.textContent = "Osc 2 filter mod";
+    			option42 = element("option");
+    			option42.textContent = "LFO 1 delay";
+    			option43 = element("option");
+    			option43.textContent = "LFO 1 speed";
+    			option44 = element("option");
+    			option44.textContent = "LFO 2 delay";
+    			option45 = element("option");
+    			option45.textContent = "LFO 2 speed";
+    			option46 = element("option");
+    			option46.textContent = "Osc 1 coarse";
+    			option47 = element("option");
+    			option47.textContent = "Osc 1 fine";
+    			option48 = element("option");
+    			option48.textContent = "Osc 1 mod env";
+    			option49 = element("option");
+    			option49.textContent = "Osc 1 mod LFO 1";
+    			option50 = element("option");
+    			option50.textContent = "Osc 1 PWM env";
+    			option51 = element("option");
+    			option51.textContent = "Osc 1 PWM LFO 2";
+    			option52 = element("option");
+    			option52.textContent = "Osc 2 coarse";
+    			option53 = element("option");
+    			option53.textContent = "Osc 2 fine";
+    			option54 = element("option");
+    			option54.textContent = "Osc 2 mod env";
+    			option55 = element("option");
+    			option55.textContent = "Osc 2 mod LFO 1";
+    			option56 = element("option");
+    			option56.textContent = "Osc 2 PWM env";
+    			option57 = element("option");
+    			option57.textContent = "Osc 2 PWM LFO 2";
+    			option58 = element("option");
+    			option58.textContent = "Mix sub";
+    			option59 = element("option");
+    			option59.textContent = "Mix osc 1";
+    			option60 = element("option");
+    			option60.textContent = "Mix osc 2";
+    			option61 = element("option");
+    			option61.textContent = "Mix ring";
+    			option62 = element("option");
+    			option62.textContent = "Mix noise";
+    			option63 = element("option");
+    			option63.textContent = "Mix ext";
+    			option64 = element("option");
+    			option64.textContent = "Mod env attack";
+    			option65 = element("option");
+    			option65.textContent = "Mod env decay";
+    			option66 = element("option");
+    			option66.textContent = "Mod env sustain";
+    			option67 = element("option");
+    			option67.textContent = "Mod env release";
+    			option68 = element("option");
+    			option68.textContent = "Amp env attack";
+    			option69 = element("option");
+    			option69.textContent = "Amp env decay";
+    			option70 = element("option");
+    			option70.textContent = "Amp env sustain";
+    			option71 = element("option");
+    			option71.textContent = "Amp env release";
+    			t83 = space();
+    			div7 = element("div");
+    			svg = svg_element("svg");
+    			path0 = svg_element("path");
+    			path1 = svg_element("path");
+    			path2 = svg_element("path");
+    			path3 = svg_element("path");
+    			path4 = svg_element("path");
+    			path5 = svg_element("path");
+    			path6 = svg_element("path");
+    			path7 = svg_element("path");
+    			circle = svg_element("circle");
+    			rect = svg_element("rect");
     			attr_dev(canvas_1, "id", "sketchpad");
     			attr_dev(canvas_1, "height", "300");
     			attr_dev(canvas_1, "width", "400");
-    			attr_dev(canvas_1, "class", "svelte-1p42njl");
-    			add_location(canvas_1, file$2, 124, 8, 5259);
-    			attr_dev(div0, "class", "rightside svelte-1p42njl");
-    			add_location(div0, file$2, 123, 4, 5226);
+    			attr_dev(canvas_1, "class", "svelte-cvl84i");
+    			add_location(canvas_1, file$2, 124, 8, 5268);
+    			attr_dev(div0, "class", "rightside svelte-cvl84i");
+    			add_location(div0, file$2, 123, 4, 5235);
     			attr_dev(div1, "id", "sketchpadapp");
-    			attr_dev(div1, "class", "svelte-1p42njl");
+    			attr_dev(div1, "class", "svelte-cvl84i");
     			add_location(div1, file$2, 116, 0, 4795);
+    			attr_dev(button, "id", "xypad-cal");
+    			set_style(button, "float", "right");
+    			add_location(button, file$2, 133, 16, 5436);
+    			attr_dev(span, "id", "xy");
+    			add_location(span, file$2, 134, 16, 5515);
+    			add_location(div2, file$2, 135, 16, 5562);
+    			attr_dev(div3, "class", "header");
+    			add_location(div3, file$2, 132, 8, 5398);
+    			attr_dev(div4, "id", "xypad");
+    			add_location(div4, file$2, 131, 4, 5372);
+    			add_location(div5, file$2, 129, 0, 5359);
+    			add_location(h1, file$2, 139, 0, 5617);
+    			option0.__value = "cc-16";
+    			option0.value = option0.__value;
+    			add_location(option0, file$2, 143, 16, 5764);
+    			option1.__value = "cc-82";
+    			option1.value = option1.__value;
+    			add_location(option1, file$2, 144, 16, 5824);
+    			option2.__value = "cc-85";
+    			option2.value = option2.__value;
+    			add_location(option2, file$2, 145, 16, 5882);
+    			option3.__value = "cc-17";
+    			option3.value = option3.__value;
+    			add_location(option3, file$2, 146, 16, 5941);
+    			option4.__value = "cc-94";
+    			option4.value = option4.__value;
+    			add_location(option4, file$2, 147, 16, 6002);
+    			option5.__value = "cc-115";
+    			option5.value = option5.__value;
+    			add_location(option5, file$2, 148, 16, 6061);
+    			option6.__value = "cc-86";
+    			option6.value = option6.__value;
+    			add_location(option6, file$2, 149, 16, 6127);
+    			option7.__value = "cc-18";
+    			option7.value = option7.__value;
+    			add_location(option7, file$2, 150, 16, 6187);
+    			option8.__value = "cc-87";
+    			option8.value = option8.__value;
+    			add_location(option8, file$2, 151, 16, 6247);
+    			option9.__value = "cc-19";
+    			option9.value = option9.__value;
+    			add_location(option9, file$2, 152, 16, 6307);
+    			option10.__value = "cc-27";
+    			option10.value = option10.__value;
+    			add_location(option10, file$2, 153, 16, 6367);
+    			option11.__value = "cc-26";
+    			option11.value = option11.__value;
+    			add_location(option11, file$2, 154, 16, 6428);
+    			option12.__value = "cc-71";
+    			option12.value = option12.__value;
+    			add_location(option12, file$2, 155, 16, 6487);
+    			option13.__value = "cc-28";
+    			option13.value = option13.__value;
+    			add_location(option13, file$2, 156, 16, 6549);
+    			option14.__value = "cc-72";
+    			option14.value = option14.__value;
+    			add_location(option14, file$2, 157, 16, 6613);
+    			option15.__value = "cc-73";
+    			option15.value = option15.__value;
+    			add_location(option15, file$2, 158, 16, 6675);
+    			option16.__value = "cc-30";
+    			option16.value = option16.__value;
+    			add_location(option16, file$2, 159, 16, 6739);
+    			option17.__value = "cc-29";
+    			option17.value = option17.__value;
+    			add_location(option17, file$2, 160, 16, 6800);
+    			option18.__value = "cc-76";
+    			option18.value = option18.__value;
+    			add_location(option18, file$2, 161, 16, 6859);
+    			option19.__value = "cc-31";
+    			option19.value = option19.__value;
+    			add_location(option19, file$2, 162, 16, 6921);
+    			option20.__value = "cc-77";
+    			option20.value = option20.__value;
+    			add_location(option20, file$2, 163, 16, 6985);
+    			option21.__value = "cc-78";
+    			option21.value = option21.__value;
+    			add_location(option21, file$2, 164, 16, 7047);
+    			option22.__value = "cc-22";
+    			option22.value = option22.__value;
+    			add_location(option22, file$2, 165, 16, 7111);
+    			option23.__value = "cc-20";
+    			option23.value = option23.__value;
+    			add_location(option23, file$2, 166, 16, 7167);
+    			option24.__value = "cc-21";
+    			option24.value = option24.__value;
+    			add_location(option24, file$2, 167, 16, 7225);
+    			option25.__value = "cc-24";
+    			option25.value = option25.__value;
+    			add_location(option25, file$2, 168, 16, 7283);
+    			option26.__value = "cc-23";
+    			option26.value = option26.__value;
+    			add_location(option26, file$2, 169, 16, 7340);
+    			option27.__value = "cc-25";
+    			option27.value = option27.__value;
+    			add_location(option27, file$2, 170, 16, 7398);
+    			option28.__value = "cc-102";
+    			option28.value = option28.__value;
+    			add_location(option28, file$2, 171, 16, 7454);
+    			option29.__value = "cc-103";
+    			option29.value = option29.__value;
+    			add_location(option29, file$2, 172, 16, 7518);
+    			option30.__value = "cc-104";
+    			option30.value = option30.__value;
+    			add_location(option30, file$2, 173, 16, 7581);
+    			option31.__value = "cc-105";
+    			option31.value = option31.__value;
+    			add_location(option31, file$2, 174, 16, 7646);
+    			option32.__value = "cc-90";
+    			option32.value = option32.__value;
+    			add_location(option32, file$2, 175, 16, 7711);
+    			option33.__value = "cc-91";
+    			option33.value = option33.__value;
+    			add_location(option33, file$2, 176, 16, 7774);
+    			option34.__value = "cc-92";
+    			option34.value = option34.__value;
+    			add_location(option34, file$2, 177, 16, 7836);
+    			option35.__value = "cc-93";
+    			option35.value = option35.__value;
+    			add_location(option35, file$2, 178, 16, 7900);
+    			attr_dev(select0, "id", "x-cc");
+    			set_style(select0, "background", "transparent");
+    			add_location(select0, file$2, 142, 8, 5697);
+    			option36.__value = "cc-16";
+    			option36.value = option36.__value;
+    			add_location(option36, file$2, 182, 16, 8054);
+    			option37.__value = "cc-82";
+    			option37.value = option37.__value;
+    			add_location(option37, file$2, 183, 16, 8114);
+    			option38.__value = "cc-85";
+    			option38.value = option38.__value;
+    			add_location(option38, file$2, 184, 16, 8172);
+    			option39.__value = "cc-17";
+    			option39.value = option39.__value;
+    			add_location(option39, file$2, 185, 16, 8231);
+    			option40.__value = "cc-94";
+    			option40.value = option40.__value;
+    			add_location(option40, file$2, 186, 16, 8292);
+    			option41.__value = "cc-115";
+    			option41.value = option41.__value;
+    			add_location(option41, file$2, 187, 16, 8351);
+    			option42.__value = "cc-86";
+    			option42.value = option42.__value;
+    			add_location(option42, file$2, 188, 16, 8417);
+    			option43.__value = "cc-18";
+    			option43.value = option43.__value;
+    			add_location(option43, file$2, 189, 16, 8477);
+    			option44.__value = "cc-87";
+    			option44.value = option44.__value;
+    			add_location(option44, file$2, 190, 16, 8537);
+    			option45.__value = "cc-19";
+    			option45.value = option45.__value;
+    			add_location(option45, file$2, 191, 16, 8597);
+    			option46.__value = "cc-27";
+    			option46.value = option46.__value;
+    			add_location(option46, file$2, 192, 16, 8657);
+    			option47.__value = "cc-26";
+    			option47.value = option47.__value;
+    			add_location(option47, file$2, 193, 16, 8718);
+    			option48.__value = "cc-71";
+    			option48.value = option48.__value;
+    			add_location(option48, file$2, 194, 16, 8777);
+    			option49.__value = "cc-28";
+    			option49.value = option49.__value;
+    			add_location(option49, file$2, 195, 16, 8839);
+    			option50.__value = "cc-72";
+    			option50.value = option50.__value;
+    			add_location(option50, file$2, 196, 16, 8903);
+    			option51.__value = "cc-73";
+    			option51.value = option51.__value;
+    			add_location(option51, file$2, 197, 16, 8965);
+    			option52.__value = "cc-30";
+    			option52.value = option52.__value;
+    			add_location(option52, file$2, 198, 16, 9029);
+    			option53.__value = "cc-29";
+    			option53.value = option53.__value;
+    			add_location(option53, file$2, 199, 16, 9090);
+    			option54.__value = "cc-76";
+    			option54.value = option54.__value;
+    			add_location(option54, file$2, 200, 16, 9149);
+    			option55.__value = "cc-31";
+    			option55.value = option55.__value;
+    			add_location(option55, file$2, 201, 16, 9211);
+    			option56.__value = "cc-77";
+    			option56.value = option56.__value;
+    			add_location(option56, file$2, 202, 16, 9275);
+    			option57.__value = "cc-78";
+    			option57.value = option57.__value;
+    			add_location(option57, file$2, 203, 16, 9337);
+    			option58.__value = "cc-22";
+    			option58.value = option58.__value;
+    			add_location(option58, file$2, 204, 16, 9401);
+    			option59.__value = "cc-20";
+    			option59.value = option59.__value;
+    			add_location(option59, file$2, 205, 16, 9457);
+    			option60.__value = "cc-21";
+    			option60.value = option60.__value;
+    			add_location(option60, file$2, 206, 16, 9515);
+    			option61.__value = "cc-24";
+    			option61.value = option61.__value;
+    			add_location(option61, file$2, 207, 16, 9573);
+    			option62.__value = "cc-23";
+    			option62.value = option62.__value;
+    			add_location(option62, file$2, 208, 16, 9630);
+    			option63.__value = "cc-25";
+    			option63.value = option63.__value;
+    			add_location(option63, file$2, 209, 16, 9688);
+    			option64.__value = "cc-102";
+    			option64.value = option64.__value;
+    			add_location(option64, file$2, 210, 16, 9744);
+    			option65.__value = "cc-103";
+    			option65.value = option65.__value;
+    			add_location(option65, file$2, 211, 16, 9808);
+    			option66.__value = "cc-104";
+    			option66.value = option66.__value;
+    			add_location(option66, file$2, 212, 16, 9871);
+    			option67.__value = "cc-105";
+    			option67.value = option67.__value;
+    			add_location(option67, file$2, 213, 16, 9936);
+    			option68.__value = "cc-90";
+    			option68.value = option68.__value;
+    			add_location(option68, file$2, 214, 16, 10001);
+    			option69.__value = "cc-91";
+    			option69.value = option69.__value;
+    			add_location(option69, file$2, 215, 16, 10064);
+    			option70.__value = "cc-92";
+    			option70.value = option70.__value;
+    			add_location(option70, file$2, 216, 16, 10126);
+    			option71.__value = "cc-93";
+    			option71.value = option71.__value;
+    			add_location(option71, file$2, 217, 16, 10190);
+    			attr_dev(select1, "id", "y-cc");
+    			set_style(select1, "background", "transparent");
+    			add_location(select1, file$2, 181, 8, 7987);
+    			attr_dev(div6, "id", "xy-conf");
+    			attr_dev(div6, "data-children-count", "2");
+    			add_location(div6, file$2, 140, 0, 5633);
+    			attr_dev(path0, "d", "M 0 50 L 100 50");
+    			attr_dev(path0, "stroke", "#aaa");
+    			attr_dev(path0, "stroke-width", "1px");
+    			attr_dev(path0, "vector-effect", "non-scaling-stroke");
+    			add_location(path0, file$2, 223, 16, 10427);
+    			attr_dev(path1, "d", "M 50 0 L 50 100");
+    			attr_dev(path1, "stroke", "#aaa");
+    			attr_dev(path1, "stroke-width", "1px");
+    			attr_dev(path1, "vector-effect", "non-scaling-stroke");
+    			add_location(path1, file$2, 224, 16, 10546);
+    			attr_dev(path2, "d", "M 0 0 L 100 100");
+    			attr_dev(path2, "stroke", "#777");
+    			attr_dev(path2, "stroke-width", "1px");
+    			attr_dev(path2, "vector-effect", "non-scaling-stroke");
+    			add_location(path2, file$2, 225, 16, 10665);
+    			attr_dev(path3, "d", "M 0 100 L 100 0");
+    			attr_dev(path3, "stroke", "#777");
+    			attr_dev(path3, "stroke-width", "1px");
+    			attr_dev(path3, "vector-effect", "non-scaling-stroke");
+    			add_location(path3, file$2, 226, 16, 10784);
+    			attr_dev(path4, "d", "M 25 0 L 25 100");
+    			attr_dev(path4, "stroke", "#555");
+    			attr_dev(path4, "stroke-width", "1px");
+    			attr_dev(path4, "vector-effect", "non-scaling-stroke");
+    			add_location(path4, file$2, 227, 16, 10903);
+    			attr_dev(path5, "d", "M 75 0 L 75 100");
+    			attr_dev(path5, "stroke", "#555");
+    			attr_dev(path5, "stroke-width", "1px");
+    			attr_dev(path5, "vector-effect", "non-scaling-stroke");
+    			add_location(path5, file$2, 228, 16, 11022);
+    			attr_dev(path6, "d", "M 0 25 L 100 25");
+    			attr_dev(path6, "stroke", "#555");
+    			attr_dev(path6, "stroke-width", "1px");
+    			attr_dev(path6, "vector-effect", "non-scaling-stroke");
+    			add_location(path6, file$2, 229, 16, 11141);
+    			attr_dev(path7, "d", "M 0 75 L 100 75");
+    			attr_dev(path7, "stroke", "#555");
+    			attr_dev(path7, "stroke-width", "1px");
+    			attr_dev(path7, "vector-effect", "non-scaling-stroke");
+    			add_location(path7, file$2, 230, 16, 11260);
+    			attr_dev(circle, "id", "dot");
+    			attr_dev(circle, "cx", "72.16082688682312");
+    			attr_dev(circle, "cy", "16.355717350321783");
+    			attr_dev(circle, "r", "5");
+    			attr_dev(circle, "fill-opacity", "0.66");
+    			add_location(circle, file$2, 231, 16, 11379);
+    			attr_dev(rect, "id", "pad-zone");
+    			attr_dev(rect, "x", "0");
+    			attr_dev(rect, "y", "0");
+    			attr_dev(rect, "width", "100");
+    			attr_dev(rect, "height", "100");
+    			attr_dev(rect, "stroke-width", "0");
+    			attr_dev(rect, "fill", "#333");
+    			attr_dev(rect, "fill-opacity", "0.25");
+    			add_location(rect, file$2, 232, 16, 11496);
+    			attr_dev(svg, "id", "pad");
+    			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg, "viewBox", "0 0 100 100");
+    			attr_dev(svg, "preserveAspectRatio", "xMidYMid meet");
+    			add_location(svg, file$2, 222, 8, 10302);
+    			attr_dev(div7, "id", "grid-container");
+    			add_location(div7, file$2, 221, 0, 10267);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
-    			append_dev(div1, input);
-    			append_dev(div1, t);
     			append_dev(div1, div0);
     			append_dev(div0, canvas_1);
-
-    			if (!mounted) {
-    				dispose = listen_dev(input, "click", /*click_handler*/ ctx[2], false, false, false);
-    				mounted = true;
-    			}
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div5, anchor);
+    			append_dev(div5, div4);
+    			append_dev(div4, div3);
+    			append_dev(div3, button);
+    			append_dev(div3, t2);
+    			append_dev(div3, span);
+    			append_dev(div3, t4);
+    			append_dev(div3, div2);
+    			insert_dev(target, t6, anchor);
+    			insert_dev(target, h1, anchor);
+    			insert_dev(target, t8, anchor);
+    			insert_dev(target, div6, anchor);
+    			append_dev(div6, t9);
+    			append_dev(div6, select0);
+    			append_dev(select0, option0);
+    			append_dev(select0, option1);
+    			append_dev(select0, option2);
+    			append_dev(select0, option3);
+    			append_dev(select0, option4);
+    			append_dev(select0, option5);
+    			append_dev(select0, option6);
+    			append_dev(select0, option7);
+    			append_dev(select0, option8);
+    			append_dev(select0, option9);
+    			append_dev(select0, option10);
+    			append_dev(select0, option11);
+    			append_dev(select0, option12);
+    			append_dev(select0, option13);
+    			append_dev(select0, option14);
+    			append_dev(select0, option15);
+    			append_dev(select0, option16);
+    			append_dev(select0, option17);
+    			append_dev(select0, option18);
+    			append_dev(select0, option19);
+    			append_dev(select0, option20);
+    			append_dev(select0, option21);
+    			append_dev(select0, option22);
+    			append_dev(select0, option23);
+    			append_dev(select0, option24);
+    			append_dev(select0, option25);
+    			append_dev(select0, option26);
+    			append_dev(select0, option27);
+    			append_dev(select0, option28);
+    			append_dev(select0, option29);
+    			append_dev(select0, option30);
+    			append_dev(select0, option31);
+    			append_dev(select0, option32);
+    			append_dev(select0, option33);
+    			append_dev(select0, option34);
+    			append_dev(select0, option35);
+    			append_dev(div6, t46);
+    			append_dev(div6, select1);
+    			append_dev(select1, option36);
+    			append_dev(select1, option37);
+    			append_dev(select1, option38);
+    			append_dev(select1, option39);
+    			append_dev(select1, option40);
+    			append_dev(select1, option41);
+    			append_dev(select1, option42);
+    			append_dev(select1, option43);
+    			append_dev(select1, option44);
+    			append_dev(select1, option45);
+    			append_dev(select1, option46);
+    			append_dev(select1, option47);
+    			append_dev(select1, option48);
+    			append_dev(select1, option49);
+    			append_dev(select1, option50);
+    			append_dev(select1, option51);
+    			append_dev(select1, option52);
+    			append_dev(select1, option53);
+    			append_dev(select1, option54);
+    			append_dev(select1, option55);
+    			append_dev(select1, option56);
+    			append_dev(select1, option57);
+    			append_dev(select1, option58);
+    			append_dev(select1, option59);
+    			append_dev(select1, option60);
+    			append_dev(select1, option61);
+    			append_dev(select1, option62);
+    			append_dev(select1, option63);
+    			append_dev(select1, option64);
+    			append_dev(select1, option65);
+    			append_dev(select1, option66);
+    			append_dev(select1, option67);
+    			append_dev(select1, option68);
+    			append_dev(select1, option69);
+    			append_dev(select1, option70);
+    			append_dev(select1, option71);
+    			insert_dev(target, t83, anchor);
+    			insert_dev(target, div7, anchor);
+    			append_dev(div7, svg);
+    			append_dev(svg, path0);
+    			append_dev(svg, path1);
+    			append_dev(svg, path2);
+    			append_dev(svg, path3);
+    			append_dev(svg, path4);
+    			append_dev(svg, path5);
+    			append_dev(svg, path6);
+    			append_dev(svg, path7);
+    			append_dev(svg, circle);
+    			append_dev(svg, rect);
     		},
     		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div1);
-    			mounted = false;
-    			dispose();
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div5);
+    			if (detaching) detach_dev(t6);
+    			if (detaching) detach_dev(h1);
+    			if (detaching) detach_dev(t8);
+    			if (detaching) detach_dev(div6);
+    			if (detaching) detach_dev(t83);
+    			if (detaching) detach_dev(div7);
     		}
     	};
 
@@ -9287,10 +9942,10 @@ var app = (function () {
     		console.log("init");
 
     		// Get the specific canvas element from the HTML document
-    		$$invalidate(0, canvas = document.getElementById("sketchpad"));
+    		canvas = document.getElementById("sketchpad");
 
     		// If the browser supports the canvas tag, get the 2d drawing context for this canvas
-    		if (canvas.getContext) $$invalidate(1, ctx = canvas.getContext("2d"));
+    		if (canvas.getContext) ctx = canvas.getContext("2d");
 
     		// Check that we have a valid context to draw on/with before adding event handlers
     		if (ctx) {
@@ -9316,8 +9971,6 @@ var app = (function () {
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$1.warn(`<XYPad> was created with unknown prop '${key}'`);
     	});
-
-    	const click_handler = () => clearCanvas(canvas, ctx);
 
     	$$self.$capture_state = () => ({
     		onMount,
@@ -9346,8 +9999,8 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("canvas" in $$props) $$invalidate(0, canvas = $$props.canvas);
-    		if ("ctx" in $$props) $$invalidate(1, ctx = $$props.ctx);
+    		if ("canvas" in $$props) canvas = $$props.canvas;
+    		if ("ctx" in $$props) ctx = $$props.ctx;
     		if ("mouseX" in $$props) mouseX = $$props.mouseX;
     		if ("mouseY" in $$props) mouseY = $$props.mouseY;
     		if ("mouseDown" in $$props) mouseDown = $$props.mouseDown;
@@ -9363,7 +10016,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [canvas, ctx, click_handler];
+    	return [];
     }
 
     class XYPad extends SvelteComponentDev {
@@ -9387,30 +10040,30 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i].id;
-    	child_ctx[13] = list[i].name;
-    	child_ctx[14] = list[i].state;
+    	child_ctx[16] = list[i].id;
+    	child_ctx[17] = list[i].name;
+    	child_ctx[18] = list[i].state;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i].id;
-    	child_ctx[13] = list[i].name;
-    	child_ctx[14] = list[i].state;
+    	child_ctx[16] = list[i].id;
+    	child_ctx[17] = list[i].name;
+    	child_ctx[18] = list[i].state;
     	return child_ctx;
     }
 
-    // (127:2) {#each inputs as {id, name, state}}
+    // (149:2) {#each inputs as {id, name, state}}
     function create_each_block_1(ctx) {
     	let div;
-    	let t0_value = /*id*/ ctx[12] + "";
+    	let t0_value = /*id*/ ctx[16] + "";
     	let t0;
     	let t1;
-    	let t2_value = /*name*/ ctx[13] + "";
+    	let t2_value = /*name*/ ctx[17] + "";
     	let t2;
     	let t3;
-    	let t4_value = /*state*/ ctx[14] + "";
+    	let t4_value = /*state*/ ctx[18] + "";
     	let t4;
 
     	const block = {
@@ -9422,7 +10075,7 @@ var app = (function () {
     			t3 = text(" :: ");
     			t4 = text(t4_value);
     			attr_dev(div, "class", rowClass);
-    			add_location(div, file$1, 127, 2, 4430);
+    			add_location(div, file$1, 149, 2, 5090);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9433,9 +10086,9 @@ var app = (function () {
     			append_dev(div, t4);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*inputs*/ 2 && t0_value !== (t0_value = /*id*/ ctx[12] + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*inputs*/ 2 && t2_value !== (t2_value = /*name*/ ctx[13] + "")) set_data_dev(t2, t2_value);
-    			if (dirty & /*inputs*/ 2 && t4_value !== (t4_value = /*state*/ ctx[14] + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*inputs*/ 2 && t0_value !== (t0_value = /*id*/ ctx[16] + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*inputs*/ 2 && t2_value !== (t2_value = /*name*/ ctx[17] + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*inputs*/ 2 && t4_value !== (t4_value = /*state*/ ctx[18] + "")) set_data_dev(t4, t4_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
@@ -9446,23 +10099,23 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(127:2) {#each inputs as {id, name, state}}",
+    		source: "(149:2) {#each inputs as {id, name, state}}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (134:2) {#each outputs as {id, name, state}}
+    // (156:2) {#each outputs as {id, name, state}}
     function create_each_block(ctx) {
     	let div;
-    	let t0_value = /*id*/ ctx[12] + "";
+    	let t0_value = /*id*/ ctx[16] + "";
     	let t0;
     	let t1;
-    	let t2_value = /*name*/ ctx[13] + "";
+    	let t2_value = /*name*/ ctx[17] + "";
     	let t2;
     	let t3;
-    	let t4_value = /*state*/ ctx[14] + "";
+    	let t4_value = /*state*/ ctx[18] + "";
     	let t4;
 
     	const block = {
@@ -9474,7 +10127,7 @@ var app = (function () {
     			t3 = text(" :: ");
     			t4 = text(t4_value);
     			attr_dev(div, "class", rowClass);
-    			add_location(div, file$1, 134, 2, 4620);
+    			add_location(div, file$1, 156, 2, 5280);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9485,9 +10138,9 @@ var app = (function () {
     			append_dev(div, t4);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*outputs*/ 4 && t0_value !== (t0_value = /*id*/ ctx[12] + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*outputs*/ 4 && t2_value !== (t2_value = /*name*/ ctx[13] + "")) set_data_dev(t2, t2_value);
-    			if (dirty & /*outputs*/ 4 && t4_value !== (t4_value = /*state*/ ctx[14] + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*outputs*/ 4 && t0_value !== (t0_value = /*id*/ ctx[16] + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*outputs*/ 4 && t2_value !== (t2_value = /*name*/ ctx[17] + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*outputs*/ 4 && t4_value !== (t4_value = /*state*/ ctx[18] + "")) set_data_dev(t4, t4_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
@@ -9498,7 +10151,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(134:2) {#each outputs as {id, name, state}}",
+    		source: "(156:2) {#each outputs as {id, name, state}}",
     		ctx
     	});
 
@@ -9534,29 +10187,31 @@ var app = (function () {
     	let div5;
     	let t11;
     	let t12;
-    	let div8;
-    	let xypad;
-    	let t13;
-    	let div13;
-    	let div10;
+    	let div12;
     	let div9;
+    	let div8;
+    	let t13;
     	let t14;
     	let t15;
-    	let t16;
-    	let div12;
     	let div11;
+    	let div10;
+    	let t16;
     	let t17;
     	let t18;
+    	let div15;
+    	let div13;
+    	let xypad;
     	let t19;
     	let div14;
     	let macrocontrols;
+    	let t20;
+    	let div16;
     	let current;
     	let mounted;
     	let dispose;
     	keytrap = new KeyTrap({ $$inline: true });
     	menu = new Menu_1({ $$inline: true });
     	midiselect = new MidiSelect({ $$inline: true });
-    	xypad = new XYPad({ $$inline: true });
     	let each_value_1 = /*inputs*/ ctx[1];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
@@ -9573,6 +10228,7 @@ var app = (function () {
     		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
     	}
 
+    	xypad = new XYPad({ $$inline: true });
     	macrocontrols = new MacroControls({ $$inline: true });
 
     	const block = {
@@ -9587,7 +10243,7 @@ var app = (function () {
     			t2 = space();
     			div6 = element("div");
     			div1 = element("div");
-    			t3 = text("Enable WebMidi ");
+    			t3 = text("Enable WebMidi XXX ");
     			i0 = element("i");
     			t4 = space();
     			div2 = element("div");
@@ -9603,72 +10259,80 @@ var app = (function () {
     			div5 = element("div");
     			t11 = text("Send CC");
     			t12 = space();
-    			div8 = element("div");
-    			create_component(xypad.$$.fragment);
-    			t13 = space();
-    			div13 = element("div");
-    			div10 = element("div");
+    			div12 = element("div");
     			div9 = element("div");
-    			t14 = text("Inputs");
-    			t15 = space();
+    			div8 = element("div");
+    			t13 = text("Inputs");
+    			t14 = space();
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
     				each_blocks_1[i].c();
     			}
 
-    			t16 = space();
-    			div12 = element("div");
+    			t15 = space();
     			div11 = element("div");
-    			t17 = text("Outputs");
-    			t18 = space();
+    			div10 = element("div");
+    			t16 = text("Outputs");
+    			t17 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
+    			t18 = space();
+    			div15 = element("div");
+    			div13 = element("div");
+    			create_component(xypad.$$.fragment);
     			t19 = space();
     			div14 = element("div");
     			create_component(macrocontrols.$$.fragment);
+    			t20 = space();
+    			div16 = element("div");
+    			div16.textContent = "hello";
     			attr_dev(div0, "class", "flex mb2 fr");
-    			add_location(div0, file$1, 102, 1, 3655);
+    			add_location(div0, file$1, 129, 1, 4364);
 
     			attr_dev(i0, "class", i0_class_value = /*isEnabled*/ ctx[0]
     			? /*isEnabledStyle*/ ctx[4]
     			: /*isNotEnabledStyle*/ ctx[3]);
 
-    			add_location(i0, file$1, 107, 63, 3807);
+    			add_location(i0, file$1, 134, 67, 4520);
     			attr_dev(div1, "class", btnStyle);
-    			add_location(div1, file$1, 107, 2, 3746);
+    			add_location(div1, file$1, 134, 2, 4455);
 
     			attr_dev(i1, "class", i1_class_value = /*isEnabled*/ ctx[0]
     			? /*isEnabledStyle*/ ctx[4]
     			: /*isNotEnabledStyle*/ ctx[3]);
 
-    			add_location(i1, file$1, 108, 65, 3939);
+    			add_location(i1, file$1, 135, 65, 4652);
     			attr_dev(div2, "class", btnStyle);
-    			add_location(div2, file$1, 108, 2, 3876);
+    			add_location(div2, file$1, 135, 2, 4589);
     			attr_dev(div3, "class", btnStyle);
-    			add_location(div3, file$1, 109, 2, 4008);
+    			add_location(div3, file$1, 136, 2, 4721);
     			attr_dev(div4, "class", btnStyle);
-    			add_location(div4, file$1, 110, 2, 4072);
+    			add_location(div4, file$1, 137, 2, 4785);
     			attr_dev(div5, "class", btnStyle);
-    			add_location(div5, file$1, 111, 2, 4141);
+    			add_location(div5, file$1, 138, 2, 4854);
     			attr_dev(div6, "class", "flex");
-    			add_location(div6, file$1, 106, 1, 3722);
-    			add_location(div7, file$1, 101, 0, 3646);
-    			attr_dev(div8, "class", "flex mt2 mr2");
-    			add_location(div8, file$1, 116, 0, 4225);
-    			attr_dev(div9, "class", rowTitleClass);
-    			add_location(div9, file$1, 125, 2, 4346);
-    			add_location(div10, file$1, 124, 1, 4335);
-    			attr_dev(div11, "class", rowTitleClass);
-    			add_location(div11, file$1, 132, 2, 4534);
-    			attr_dev(div12, "class", "ml2");
-    			add_location(div12, file$1, 131, 1, 4509);
-    			attr_dev(div13, "class", "flex mt2");
-    			add_location(div13, file$1, 122, 0, 4307);
+    			add_location(div6, file$1, 133, 1, 4431);
+    			add_location(div7, file$1, 128, 0, 4355);
+    			attr_dev(div8, "class", rowTitleClass);
+    			add_location(div8, file$1, 147, 2, 5006);
+    			add_location(div9, file$1, 146, 1, 4995);
+    			attr_dev(div10, "class", rowTitleClass);
+    			add_location(div10, file$1, 154, 2, 5194);
+    			attr_dev(div11, "class", "ml2");
+    			add_location(div11, file$1, 153, 1, 5169);
+    			attr_dev(div12, "class", "flex mt2");
+    			add_location(div12, file$1, 144, 0, 4967);
+    			attr_dev(div13, "class", "flex mt2 mr2");
+    			add_location(div13, file$1, 164, 1, 5391);
     			attr_dev(div14, "class", "flex mt2");
-    			add_location(div14, file$1, 140, 0, 4708);
+    			add_location(div14, file$1, 172, 1, 5458);
+    			attr_dev(div15, "class", "flex");
+    			add_location(div15, file$1, 162, 0, 5368);
+    			attr_dev(div16, "class", "flex mt2");
+    			add_location(div16, file$1, 177, 0, 5522);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9700,32 +10364,35 @@ var app = (function () {
     			append_dev(div6, div5);
     			append_dev(div5, t11);
     			insert_dev(target, t12, anchor);
-    			insert_dev(target, div8, anchor);
-    			mount_component(xypad, div8, null);
-    			insert_dev(target, t13, anchor);
-    			insert_dev(target, div13, anchor);
-    			append_dev(div13, div10);
-    			append_dev(div10, div9);
+    			insert_dev(target, div12, anchor);
+    			append_dev(div12, div9);
+    			append_dev(div9, div8);
+    			append_dev(div8, t13);
     			append_dev(div9, t14);
-    			append_dev(div10, t15);
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
-    				each_blocks_1[i].m(div10, null);
+    				each_blocks_1[i].m(div9, null);
     			}
 
-    			append_dev(div13, t16);
-    			append_dev(div13, div12);
+    			append_dev(div12, t15);
     			append_dev(div12, div11);
+    			append_dev(div11, div10);
+    			append_dev(div10, t16);
     			append_dev(div11, t17);
-    			append_dev(div12, t18);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(div12, null);
+    				each_blocks[i].m(div11, null);
     			}
 
-    			insert_dev(target, t19, anchor);
-    			insert_dev(target, div14, anchor);
+    			insert_dev(target, t18, anchor);
+    			insert_dev(target, div15, anchor);
+    			append_dev(div15, div13);
+    			mount_component(xypad, div13, null);
+    			append_dev(div15, t19);
+    			append_dev(div15, div14);
     			mount_component(macrocontrols, div14, null);
+    			insert_dev(target, t20, anchor);
+    			insert_dev(target, div16, anchor);
     			current = true;
 
     			if (!mounted) {
@@ -9766,7 +10433,7 @@ var app = (function () {
     					} else {
     						each_blocks_1[i] = create_each_block_1(child_ctx);
     						each_blocks_1[i].c();
-    						each_blocks_1[i].m(div10, null);
+    						each_blocks_1[i].m(div9, null);
     					}
     				}
 
@@ -9790,7 +10457,7 @@ var app = (function () {
     					} else {
     						each_blocks[i] = create_each_block(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(div12, null);
+    						each_blocks[i].m(div11, null);
     					}
     				}
 
@@ -9825,15 +10492,15 @@ var app = (function () {
     			destroy_component(menu);
     			destroy_component(midiselect);
     			if (detaching) detach_dev(t12);
-    			if (detaching) detach_dev(div8);
-    			destroy_component(xypad);
-    			if (detaching) detach_dev(t13);
-    			if (detaching) detach_dev(div13);
+    			if (detaching) detach_dev(div12);
     			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(t19);
-    			if (detaching) detach_dev(div14);
+    			if (detaching) detach_dev(t18);
+    			if (detaching) detach_dev(div15);
+    			destroy_component(xypad);
     			destroy_component(macrocontrols);
+    			if (detaching) detach_dev(t20);
+    			if (detaching) detach_dev(div16);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -9851,6 +10518,7 @@ var app = (function () {
     }
 
     const btnStyle = "flex ba b--black-10 pa2 f6 shadow-4 grow fit-w bg-light-red mb1 mr2 pa2 pointer";
+    const incAmount = 5;
     const rowTitleClass = "ba b--black-10 pa2 tc f5 fw4";
     const rowClass = "bl br bb b--black-10 pa2 tl f6";
 
@@ -9896,49 +10564,51 @@ var app = (function () {
 
     	
 
-    	// Handle mouse scroll
-    	const zoom = e => {
+    	// Ref: https://www.geeksforgeeks.org/how-to-disable-scrolling-temporarily-using-javascript/
+    	// Poss use https://www.npmjs.com/package/quietwheel
+    	// function disableScroll() {
+    	//     document.body.classList.add("body.stop-scrolling");
+    	// }
+    	// function enableScroll() {
+    	//     document.body.classList.remove("body.stop-scrolling");
+    	// }
+    	// Handle mouse wheel scroll
+    	const handleWheel = e => {
+    		// disableScroll()
     		console.log(e);
+
     		const x = e.clientX;
     		const y = e.clientY;
-    		e.offsetX;
-    		e.offsetY;
 
     		// What element are we scrolling
-    		// TODO: Fix detection
-    		let focussedEls = document.elementsFromPoint(x, y);
+    		let focussedEl = document.elementsFromPoint(x, y)[0];
 
-    		let focussedEl = focussedEls[0];
+    		// let focussedEl = focussedEls[0]
     		console.log("focussedEls", focussedEl);
-
-    		// let focussedEl = document.elementFromPoint(mouseX, mouseY);
-    		console.log("focussedEl", focussedEl);
 
     		let isDataScroll = focussedEl.getAttribute("data-scroll") !== null;
     		console.log("isDataScroll", isDataScroll);
 
-    		// let isInput = focussedEl instanceof HTMLInputElement
     		// Not scrollable input so exit
     		if (!isDataScroll) {
     			return;
     		}
 
-    		// Change value as per scroll direction
-    		var delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
+    		// Get the cc to send to
+    		const cc = focussedEl.getAttribute("data-cc");
 
-    		// TODO: Find out how to stop scrolling NB None of these work
-    		// e.stopPropagation(); 
-    		// e.stopImmediatePropagation(); 
-    		// e.preventDefault
-    		// e.preventDefault()
-    		console.log("delta", delta);
+    		console.log("focussedCC: ", cc);
 
-    		return false;
-    	};
+    		// var delta = Math.max(-1, Math.min(1, (e.deltaY || -e.detail)));	
+    		const delta = e.deltaY || e.detail;
+
+    		// TODO: Stash inc in a store
+    		delta < 0 ? incCC14() : decCC14();
+    	}; // enableScroll()	
 
     	onMount(() => __awaiter(void 0, void 0, void 0, function* () {
     		// Capture mouse wheel
-    		window.onwheel = zoom;
+    		window.onwheel = handleWheel;
 
     		// Enable web midi
     		enableWebMidi();
@@ -9983,6 +10653,36 @@ var app = (function () {
     		playNote(port, note);
     	};
 
+    	let cc14Val = 0;
+
+    	const fixCCValue = val => {
+    		if (val > 127) {
+    			return 127;
+    		}
+
+    		if (val < 0) {
+    			return 0;
+    		}
+
+    		return val;
+    	};
+
+    	const incCC14 = () => {
+    		cc14Val += incAmount;
+    		console.log("cc14Val inc", cc14Val);
+    		cc14Val = fixCCValue(cc14Val);
+    		console.log("cc14Val send", cc14Val);
+    		sendCc(8, 14, cc14Val);
+    	};
+
+    	const decCC14 = () => {
+    		cc14Val -= incAmount;
+    		console.log("cc14Val dec", cc14Val);
+    		cc14Val = fixCCValue(cc14Val);
+    		console.log("cc14Val send", cc14Val);
+    		sendCc(8, 14, cc14Val);
+    	};
+
     	const handleSendCc = () => {
     		const value = 127;
     		const port = 6;
@@ -10013,7 +10713,7 @@ var app = (function () {
     		set_attributes,
     		KeyTrap,
     		XYPad,
-    		zoom,
+    		handleWheel,
     		btnStyle,
     		isEnabled,
     		isNotEnabledStyle,
@@ -10024,6 +10724,11 @@ var app = (function () {
     		handleDisable,
     		handleShowIO,
     		handleSendNotes,
+    		cc14Val,
+    		fixCCValue,
+    		incAmount,
+    		incCC14,
+    		decCC14,
     		handleSendCc,
     		rowTitleClass,
     		rowClass
@@ -10036,6 +10741,7 @@ var app = (function () {
     		if ("isEnabledStyle" in $$props) $$invalidate(4, isEnabledStyle = $$props.isEnabledStyle);
     		if ("inputs" in $$props) $$invalidate(1, inputs = $$props.inputs);
     		if ("outputs" in $$props) $$invalidate(2, outputs = $$props.outputs);
+    		if ("cc14Val" in $$props) cc14Val = $$props.cc14Val;
     	};
 
     	if ($$props && "$$inject" in $$props) {

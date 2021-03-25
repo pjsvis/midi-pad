@@ -30,7 +30,7 @@ export const getOutputs = () => {
 }
 
 
-// TODO: Fix async behaviour 
+
 export const playNote = async (port: number, note: INoteParam) => {
     enableWebMidi().then(x => {
         console.log('playNote')
@@ -38,10 +38,10 @@ export const playNote = async (port: number, note: INoteParam) => {
     })
 }
 
-export const sendCc = (port: number, controller: number, value:number ) => {
-    enableWebMidi().then(x => {
-        console.log('sendCc')
-        WebMidi.outputs[port].sendControlChange(controller, value, 'all');
+export const sendCc = (port: number, controller: number, ccValue:number ) => {
+    enableWebMidi().then(x => {     
+        console.log('sendCc: ', ccValue)       
+        WebMidi.outputs[port].sendControlChange(controller, ccValue, 'all');
     })  
 }
 

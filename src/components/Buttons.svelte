@@ -11,7 +11,6 @@
 		disableWebMidi,
 	} from "../utilities/midi-utils";
 
-	import Menu from "./Menu.svelte";
 	import MidiSelect from "./MidiSelect.svelte";
 	import MacroControls from "./MacroControls.svelte";
 
@@ -19,8 +18,8 @@
 	import KeyTrap from "./KeyTrap.svelte";
 	import XYPad from "./XYPad.svelte";
 	import Checkbox from "./Checkbox.svelte";
-	import SelectInput from './SelectInput.svelte'
-	import SelectOutput from './SelectOutput.svelte'
+	import SelectInput from "./SelectInput.svelte";
+	import SelectOutput from "./SelectOutput.svelte";
 
 	// Ref: https://www.geeksforgeeks.org/how-to-disable-scrolling-temporarily-using-javascript/
 	// Poss use https://www.npmjs.com/package/quietwheel
@@ -67,18 +66,20 @@
 		window.onwheel = handleWheel;
 
 		// Enable web midi
-		enableWebMidi();
+		console.log("enableWebMidi");
+		await enableWebMidi().then(() => {
+			console.log("getIo");
+			handleShowIO();
+		});
+
 		isEnabled = true;
 	});
-
-	const btnStyle =
-		"flex ba b--black-10 pa2 f6 shadow-4 grow fit-w bg-light-red mb1 mr2 pa2 pointer";
 
 	let isEnabled = false;
 	let isNotEnabledStyle = "fa fa-times ml2 black";
 	let isEnabledStyle = "fa fa-check ml2 black";
-	let inputs: Input[] = [];
-	let outputs: Output[] = [];
+	$: inputs = [] as Input[];
+	$: outputs = [] as Output[];
 
 	function handleEnable() {
 		const isSupported = isWebMidi();
@@ -101,7 +102,6 @@
 
 	const handleShowIO = () => {
 		inputs = getInputs();
-
 		outputs = getOutputs();
 	};
 
@@ -146,17 +146,15 @@
 		sendCc(port, controller, value);
 	};
 
-	const rowTitleClass = "ba b--black-10 pa2 tc f5 fw4";
-	const rowClass = "bl br bb b--black-10 pa2 tl f6";
+	const btnStyle =
+		"flex ba b--black-10 pa2 f6 shadow-4 grow fit-w bg-light-red mb1 mr2 pa2 pointer";
+
+	const selStyle = "f6 fit-w mr2 pointer";
 </script>
 
 <KeyTrap />
 
 <div>
-	<div class="flex mb2 fr">
-		<Menu />
-		<MidiSelect />
-	</div>
 	<div class="flex">
 		<div class={btnStyle} on:click={handleEnable}>
 			Enable WebMidi XXX <i
@@ -171,17 +169,13 @@
 		<div class={btnStyle} on:click={handleShowIO}>Show I/O</div>
 		<div class={btnStyle} on:click={handleSendNotes}>Send Notes</div>
 		<div class={btnStyle} on:click={handleSendCc}>Send CC</div>
+		<div class={selStyle}><SelectInput {inputs} /></div>
+		<div class={selStyle}><SelectOutput {outputs} /></div>
 	</div>
 </div>
 
 <!-- Inputs and Outputs -->
-<div class="flex mt2">
-
-<SelectInput inputs={inputs} />
-
-<SelectOutput outputs={outputs} />
->
-</div>
+<div class="flex mt2" />
 
 <div class="flex">
 	<div class="flex mt2 mr2">
@@ -191,6 +185,7 @@
 	<div class="flex">
 		<Checkbox />
 	</div>
+
 	<div class="flex mt2">
 		<MacroControls />
 	</div>

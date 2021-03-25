@@ -6,13 +6,12 @@
   const rowClass = "bl br bb b--black-10 pa2 tl f6";
 </script>
 
-<div class={rowTitleClass}>Outputs</div>
-{#each inputs as input}
-  <div class={rowClass}>{input.id} :: {input.name} :: {input.state}</div>
-{:else}
-  <div />
-  }
-{/each}
+<select>
+  <option>Inputs</option>
+  {#each inputs as input}
+    <option value={input.id}>{input.name}</option>
+  {/each}
+</select>
 
 <style>
 </style>

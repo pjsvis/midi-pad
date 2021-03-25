@@ -1,11 +1,7 @@
 <script lang="typescript">  
 </script>
 
-<div class="toggleContainer" data-children-count="1">
-  <div class="title">Solo</div>
-  <input type="checkbox" id="track-cello-solo" class="toggle">
-  <label for="track-cello-solo"></label>
-</div>
+
 
 <style>
   

@@ -1,16 +1,6 @@
 <script lang="typescript">
 import type { MacroState } from "../types/midi-pad-types";
 
-
-  // TODO: Add hover effect, toggle, onClick, isDisabled
-
-  // TODO: Use object instead of items
-  // export let id: number;
-  // export let title: string;
-  // export let ccIn: number;
-  // export let ccOut: number;
-  // export let isDisabled: boolean;
-
   export let config: MacroState;
 
   let {id, title, ccIn, ccOut, isDisabled} = config;

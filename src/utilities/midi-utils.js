@@ -25,17 +25,16 @@ export const getOutputs = () => {
     const outputs = WebMidi.outputs;
     return outputs;
 };
-// TODO: Fix async behaviour 
 export const playNote = async (port, note) => {
     enableWebMidi().then(x => {
         console.log('playNote');
         WebMidi.outputs[port].playNote(note, 'all', { duration: 4000, velocity: 1 });
     });
 };
-export const sendCc = (port, controller, value) => {
+export const sendCc = (port, controller, ccValue) => {
     enableWebMidi().then(x => {
-        console.log('sendCc');
-        WebMidi.outputs[port].sendControlChange(controller, value, 'all');
+        console.log('sendCc: ', ccValue);
+        WebMidi.outputs[port].sendControlChange(controller, ccValue, 'all');
     });
 };
 export const incParam = (port, param, channel) => {

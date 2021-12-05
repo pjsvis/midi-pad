@@ -1,13 +1,10 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
-
----
-
 # svelte app
+
+*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bc50f9e5-b93b-41b2-b9ec-992b99d0b9f6/deploy-status)](https://app.netlify.com/sites/hungry-almeida-de0b21/deploys)
 
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+This is a project template for [Svelte](https://svelte.dev) apps. It lives at ```https://github.com/sveltejs/template```
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
@@ -17,7 +14,6 @@ cd svelte-app
 ```
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
 
 ## Get started
 
@@ -49,7 +45,6 @@ npm run build
 ```
 
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
 
 ## Single-page app mode
 

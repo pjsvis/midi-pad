@@ -11,7 +11,7 @@
 		disableWebMidi,
 	} from "../utilities/midi-utils";
 
-	import MidiSelect from "./MidiSelect.svelte";
+	import WebMidi from "webmidi";
 	import MacroControls from "./MacroControls.svelte";
 
 	import { prevent_default, set_attributes } from "svelte/internal";
@@ -141,9 +141,17 @@
 
 	const handleSendCc = () => {
 		const value = 127;
-		const port = 6;
+		const port = 8;
 		const controller = 14;
 		sendCc(port, controller, value);
+	};
+
+	const handleSetNrp = () => {
+		const port = 8;
+		const param = [0x62, 0x63];
+		const data = [1, -5];
+		//setNrp(port, param, data);
+		WebMidi.outputs[port].setNonRegisteredParameter([0x62, 0x63], [1, 5]) 
 	};
 
 	const btnStyle =
@@ -154,7 +162,7 @@
 
 <KeyTrap />
 
-<div>
+<div class="t1 t1-start bg-c-blue-100">
 	<div class="flex">
 		<div class={btnStyle} on:click={handleEnable}>
 			Enable WebMidi XXX <i
@@ -169,6 +177,7 @@
 		<div class={btnStyle} on:click={handleShowIO}>Show I/O</div>
 		<div class={btnStyle} on:click={handleSendNotes}>Send Notes</div>
 		<div class={btnStyle} on:click={handleSendCc}>Send CC</div>
+		<div class={btnStyle} on:click={handleSetNrp}>Set NRP</div>
 		<div class={selStyle}><SelectInput {inputs} /></div>
 		<div class={selStyle}><SelectOutput {outputs} /></div>
 	</div>
@@ -178,9 +187,9 @@
 <div class="flex mt2" />
 
 <div class="flex">
-	<div class="flex mt2 mr2">
+	<!-- <div class="flex mt2 mr2">
 		<XYPad />
-	</div>
+	</div> -->
 
 	<div class="flex">
 		<Checkbox />
@@ -189,7 +198,19 @@
 	<div class="flex mt2">
 		<MacroControls />
 	</div>
+
 </div>
+<!-- <div class="t1 t1-start flex flex-col w-full p-8 ">
+	<div class="t1 w-full flex flex-col w6:flex-row bg-c-white rounded-3 shadow-4 max-w-640">
+		<div class="t1 w-full w6:w-160 pt-66% w6:pt-0 w6:min-h-100 relative">
+				<div class="t1 absolute inset-0 rounded-t-3 w6:rounded-l-3 w6:rounded-tr-0 bg-c-blue"></div>
+		</div>
+		<div class="t1 flex-1 p-16 color-text">
+				<div class="t1 font-20 font-weight-600 mb-4">Test Panel</div>
+				<div class="t1 ">This panel uses TurboCSS to style the HTML contents of the panel. All in all this looks like a useful development beyond the Tachyons way of doing things.</div>
+		</div>
+</div> 
+</div> -->
 
 <style>
 </style>

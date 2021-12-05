@@ -2,9 +2,13 @@
 	import Buttons from "./components/Buttons.svelte"
 </script>
 
-<main>
-	<Buttons/>
-</main>
+<body class="t1 t1-start bg-c-blue-100 m-0">
+	
+	<main>
+		<Buttons/>
+	</main>
+	
+</body>
 
 <style>
 	main {

@@ -45,10 +45,8 @@ export const sendCc = (port: number, controller: number, ccValue:number ) => {
     })  
 }
 
-export const incParam = (port, param, channel) => {
-    WebMidi.outputs[port].incrementRegisteredParameter(param, channel) 
+export const setNrp = (port: number, param: [number, number], data: [number, number], channel='all') => {
+    console.log('setNrp')   
+    WebMidi.outputs[port].setNonRegisteredParameter(param, data) 
 }
 
-export const decParam = (port, param, channel) => {
-   WebMidi.outputs[port].decrementRegisteredParameter(param, channel) 
-}

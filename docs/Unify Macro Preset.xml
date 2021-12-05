@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UnifyMacroPreset>
+  <MacroParameter id="macro1" name="VR Controls" unit="" value="1.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="0">
+    <link paramPath="inst/1/effect/2/Azimuth" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="0.9964664578437805"
+                 curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/1/effect/2/Elevation" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/1/effect/1/StereoWidth" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/1/effect/2/Distance" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="0.02020202204585075"
+                 curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro2" name="Macro2" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="1">
+    <link paramPath="inst/2/plugin/Macro2" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro2" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro3" name="Macro3" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="2">
+    <link paramPath="inst/2/plugin/Macro3" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro3" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro4" name="Macro4" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="3">
+    <link paramPath="inst/2/plugin/Macro4" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro4" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro5" name="Macro5" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="4">
+    <link paramPath="inst/2/plugin/Macro5" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro5" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro6" name="Macro6" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="5">
+    <link paramPath="inst/2/plugin/Macro6" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro6" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro7" name="Macro7" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="6">
+    <link paramPath="inst/2/plugin/Macro7" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro7" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro8" name="Macro8" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="7">
+    <link paramPath="inst/2/plugin/Macro8" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro8" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro9" name="Macro9" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="8">
+    <link paramPath="inst/2/plugin/Macro9" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro9" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro10" name="Macro10" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="9">
+    <link paramPath="inst/2/plugin/Macro10" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro10" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro11" name="Macro11" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="10">
+    <link paramPath="inst/2/plugin/Macro11" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro11" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro12" name="Macro12" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="11">
+    <link paramPath="inst/2/plugin/Macro12" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro12" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro13" name="Macro13" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="12">
+    <link paramPath="inst/2/plugin/Macro13" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro13" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro14" name="Macro14" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="13">
+    <link paramPath="inst/2/plugin/Macro14" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro14" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro15" name="Macro15" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="14">
+    <link paramPath="inst/2/plugin/Macro15" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro15" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro16" name="Macro16" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="15">
+    <link paramPath="inst/2/plugin/Macro16" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro16" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro17" name="Macro17" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="16">
+    <link paramPath="inst/2/plugin/Macro17" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro17" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro18" name="Macro18" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="17">
+    <link paramPath="inst/2/plugin/Macro18" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro18" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro19" name="Macro19" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="18">
+    <link paramPath="inst/2/plugin/Macro19" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro19" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro20" name="Macro20" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="19">
+    <link paramPath="inst/2/plugin/Macro20" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro20" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro21" name="Macro21" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="20">
+    <link paramPath="inst/2/plugin/Macro21" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro21" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro22" name="Macro22" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="21">
+    <link paramPath="inst/2/plugin/Macro22" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro22" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro23" name="Macro23" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="22">
+    <link paramPath="inst/2/plugin/Macro23" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro23" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro24" name="Macro24" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="23">
+    <link paramPath="inst/2/plugin/Macro24" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro24" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro25" name="Macro25" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="24">
+    <link paramPath="inst/2/plugin/Macro25" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro25" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro26" name="Macro26" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="25">
+    <link paramPath="inst/2/plugin/Macro26" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro26" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro27" name="Macro27" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="26">
+    <link paramPath="inst/2/plugin/Macro27" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro27" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro28" name="Macro28" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="27">
+    <link paramPath="inst/2/plugin/Macro28" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro28" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro29" name="Macro29" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="28">
+    <link paramPath="inst/2/plugin/Macro29" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro29" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro30" name="Macro30" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="29">
+    <link paramPath="inst/2/plugin/Macro30" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro30" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro31" name="Macro31" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="30">
+    <link paramPath="inst/2/plugin/Macro31" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro31" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+  <MacroParameter id="macro32" name="Macro32" unit="" value="0.0" minValue="0.0"
+                  maxValue="1.0" valueStep="0.0" defaultValue="0.0" index="31">
+    <link paramPath="inst/2/plugin/Macro32" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+    <link paramPath="inst/4/plugin/Macro32" enabled="1">
+      <curve>
+        <Segment fxMin="0.0" fxMax="1.0" fyMin="0.0" fyMax="1.0" curvature="0.0"/>
+      </curve>
+    </link>
+  </MacroParameter>
+</UnifyMacroPreset>

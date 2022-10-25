@@ -3,7 +3,10 @@
 
   "include": ["src/**/*"],
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
-  "esModuleInterop": true,
+  "compilerOptions": {
+
+    "esModuleInterop": true,
+  },
   "allowSyntheticDefaultImports": true,
   "sourceMap": true
   

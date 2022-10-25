@@ -1,5 +1,11 @@
 # svelte app
 
+
+- green led knob w 24 h 24 f 2
+- green to red dot w 32 h 32 f 31
+- mod wheel w 64 h 110 f 31
+- [MIDI Drums](https://github.com/cwilso/MIDIDrums)
+
 *Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bc50f9e5-b93b-41b2-b9ec-992b99d0b9f6/deploy-status)](https://app.netlify.com/sites/hungry-almeida-de0b21/deploys)

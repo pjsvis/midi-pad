@@ -9,7 +9,7 @@
 <select>
   <option>Inputs</option>
   {#each inputs as input}
-    <option value={input.id}>{input.name}</option>
+    <option value={input.id}>{input.id}: {input.name}</option>
   {/each}
 </select>
 

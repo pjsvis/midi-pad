@@ -1,4 +1,4 @@
-import { InputKnobsOptions, IK } from "./input-knobs";
+import type { InputKnobsOptions, IK } from "./input-knobs";
 
 const getKnobDefaults = (): InputKnobsOptions => {
   return {

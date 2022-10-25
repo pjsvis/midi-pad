@@ -5,7 +5,7 @@
     // Ref: https://zipso.net/a-simple-touchscreen-sketchpad-using-javascript-and-html5/
 
     // Variables for referencing the canvas and 2dcanvas context
-    var canvas, ctx;
+    var canvas: HTMLElement, ctx: any;
 
     // Variables to keep track of the mouse position and left-button status
     var mouseX,
@@ -103,7 +103,7 @@
     // When we get the raw values of pageX and pageY below, they take into account the scrolling on the page
     // but not the position relative to our target div. We'll adjust them using "target.offsetLeft" and
     // "target.offsetTop" to get the correct values in relation to the top left of the canvas.
-    function getTouchPos(e) {
+    function getTouchPos(e: { touches: string|any[]; }) {
         if (e.touches) {
             if (e.touches.length == 1) {
                 // Only deal with one finger

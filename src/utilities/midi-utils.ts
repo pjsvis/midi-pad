@@ -13,7 +13,7 @@ export const enableWebMidi = async () => {
 }
 
 export const disableWebMidi = async () => {
-    if (WebMidi.enabled) { return }
+    // if (WebMidi.enabled) { return }
     return WebMidi.disable()
 }
 
@@ -28,8 +28,6 @@ export const getOutputs = () => {
     return outputs
 
 }
-
-
 
 export const playNote = async (port: number, note: INoteParam) => {
     enableWebMidi().then(x => {

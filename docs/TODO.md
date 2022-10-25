@@ -7,7 +7,7 @@
 1. [ ] Add midi player
 1. [ ] Get deploy to Netlify working
 1. [ ] Test on ChromeBook
-
+1. [ ] [XML Parser](https://www.npmjs.com/package/fast-xml-parser)
 ## ui frameworks
 
 - [frameworks](https://dev.to/plazarev/overview-of-svelte-ui-libraries-and-components-2ban)

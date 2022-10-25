@@ -783,26 +783,26 @@ var app = (function () {
     			div2 = element("div");
     			attr_dev(div0, "data-scroll", "");
     			attr_dev(div0, "data-cc", /*ccOut*/ ctx[0]);
-    			add_location(div0, file$6, 13, 8, 602);
+    			add_location(div0, file$6, 12, 8, 513);
     			attr_dev(div1, "data-scroll", "");
     			attr_dev(div1, "data-cc", /*ccOut*/ ctx[0]);
     			attr_dev(div1, "class", "flex flex-column");
-    			add_location(div1, file$6, 11, 6, 453);
+    			add_location(div1, file$6, 11, 6, 445);
     			attr_dev(div2, "data-scroll", "");
     			attr_dev(div2, "data-cc", /*ccOut*/ ctx[0]);
     			attr_dev(div2, "class", "fr flex flex-column pr2");
-    			add_location(div2, file$6, 16, 6, 737);
+    			add_location(div2, file$6, 14, 6, 583);
     			attr_dev(div3, "data-scroll", "");
     			attr_dev(div3, "data-cc", /*ccOut*/ ctx[0]);
-    			add_location(div3, file$6, 10, 4, 412);
+    			add_location(div3, file$6, 10, 4, 404);
     			attr_dev(div4, "data-scroll", "");
     			attr_dev(div4, "data-cc", /*ccOut*/ ctx[0]);
-    			add_location(div4, file$6, 9, 2, 373);
+    			add_location(div4, file$6, 9, 2, 365);
     			attr_dev(button, "data-scroll", "");
     			attr_dev(button, "data-cc", /*ccOut*/ ctx[0]);
     			attr_dev(button, "class", /*exBtnStyle*/ ctx[2]);
     			button.disabled = /*isDisabled*/ ctx[1];
-    			add_location(button, file$6, 8, 0, 292);
+    			add_location(button, file$6, 8, 0, 284);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -837,7 +837,7 @@ var app = (function () {
     	return block;
     }
 
-    const btnStyle$1 = "ba b--blue bw2 b--solid br3 pa2 f6 shadow-5 dim w3 h3  white mb3 mr3 pa2 pointer";
+    const btnStyle$1 = "ba bw2 b--solid br3 pa2 f6 shadow-5 dim w3 h3  black mb3 mr3 pa2 pointer";
     const disabledStyle = "";
 
     function instance$8($$self, $$props, $$invalidate) {
@@ -2982,24 +2982,32 @@ var app = (function () {
     // (9:2) {#each inputs as input}
     function create_each_block$1(ctx) {
     	let option;
-    	let t_value = /*input*/ ctx[1].name + "";
-    	let t;
+    	let t0_value = /*input*/ ctx[1].id + "";
+    	let t0;
+    	let t1;
+    	let t2_value = /*input*/ ctx[1].name + "";
+    	let t2;
     	let option_value_value;
 
     	const block = {
     		c: function create() {
     			option = element("option");
-    			t = text(t_value);
+    			t0 = text(t0_value);
+    			t1 = text(": ");
+    			t2 = text(t2_value);
     			option.__value = option_value_value = /*input*/ ctx[1].id;
     			option.value = option.__value;
     			add_location(option, file$3, 9, 4, 237);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
-    			append_dev(option, t);
+    			append_dev(option, t0);
+    			append_dev(option, t1);
+    			append_dev(option, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*inputs*/ 1 && t_value !== (t_value = /*input*/ ctx[1].name + "")) set_data_dev(t, t_value);
+    			if (dirty & /*inputs*/ 1 && t0_value !== (t0_value = /*input*/ ctx[1].id + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*inputs*/ 1 && t2_value !== (t2_value = /*input*/ ctx[1].name + "")) set_data_dev(t2, t2_value);
 
     			if (dirty & /*inputs*/ 1 && option_value_value !== (option_value_value = /*input*/ ctx[1].id)) {
     				prop_dev(option, "__value", option_value_value);
@@ -3176,24 +3184,32 @@ var app = (function () {
     // (7:2) {#each outputs as output}
     function create_each_block(ctx) {
     	let option;
-    	let t_value = /*output*/ ctx[1].name + "";
-    	let t;
+    	let t0_value = /*output*/ ctx[1].id + "";
+    	let t0;
+    	let t1;
+    	let t2_value = /*output*/ ctx[1].name + "";
+    	let t2;
     	let option_value_value;
 
     	const block = {
     		c: function create() {
     			option = element("option");
-    			t = text(t_value);
+    			t0 = text(t0_value);
+    			t1 = text(": ");
+    			t2 = text(t2_value);
     			option.__value = option_value_value = /*output*/ ctx[1].id;
     			option.value = option.__value;
     			add_location(option, file$2, 7, 4, 134);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
-    			append_dev(option, t);
+    			append_dev(option, t0);
+    			append_dev(option, t1);
+    			append_dev(option, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*outputs*/ 1 && t_value !== (t_value = /*output*/ ctx[1].name + "")) set_data_dev(t, t_value);
+    			if (dirty & /*outputs*/ 1 && t0_value !== (t0_value = /*output*/ ctx[1].id + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*outputs*/ 1 && t2_value !== (t2_value = /*output*/ ctx[1].name + "")) set_data_dev(t2, t2_value);
 
     			if (dirty & /*outputs*/ 1 && option_value_value !== (option_value_value = /*output*/ ctx[1].id)) {
     				prop_dev(option, "__value", option_value_value);
@@ -3463,41 +3479,41 @@ var app = (function () {
     			? /*isEnabledStyle*/ ctx[4]
     			: /*isNotEnabledStyle*/ ctx[3]);
 
-    			add_location(i0, file$1, 142, 22, 4869);
+    			add_location(i0, file$1, 142, 25, 4875);
     			attr_dev(div0, "class", btnStyle);
-    			add_location(div0, file$1, 141, 2, 4799);
+    			add_location(div0, file$1, 141, 4, 4802);
 
     			attr_dev(i1, "class", i1_class_value = /*isEnabled*/ ctx[0]
     			? /*isEnabledStyle*/ ctx[4]
     			: /*isNotEnabledStyle*/ ctx[3]);
 
-    			add_location(i1, file$1, 147, 19, 5020);
+    			add_location(i1, file$1, 147, 22, 5040);
     			attr_dev(div1, "class", btnStyle);
-    			add_location(div1, file$1, 146, 2, 4952);
+    			add_location(div1, file$1, 146, 4, 4969);
     			attr_dev(div2, "class", btnStyle);
-    			add_location(div2, file$1, 151, 2, 5103);
+    			add_location(div2, file$1, 151, 4, 5134);
     			attr_dev(div3, "class", btnStyle);
-    			add_location(div3, file$1, 152, 2, 5167);
+    			add_location(div3, file$1, 152, 4, 5200);
     			attr_dev(div4, "class", btnStyle);
-    			add_location(div4, file$1, 153, 2, 5236);
+    			add_location(div4, file$1, 153, 4, 5271);
     			attr_dev(div5, "class", btnStyle);
-    			add_location(div5, file$1, 154, 2, 5299);
+    			add_location(div5, file$1, 154, 4, 5336);
     			attr_dev(div6, "class", selStyle);
-    			add_location(div6, file$1, 155, 2, 5362);
+    			add_location(div6, file$1, 155, 4, 5401);
     			attr_dev(div7, "class", selStyle);
-    			add_location(div7, file$1, 156, 2, 5418);
+    			add_location(div7, file$1, 156, 4, 5459);
     			attr_dev(div8, "class", "flex");
-    			add_location(div8, file$1, 140, 1, 4777);
+    			add_location(div8, file$1, 140, 2, 4778);
     			attr_dev(div9, "class", "t1 t1-start bg-c-blue-100");
     			add_location(div9, file$1, 139, 0, 4735);
     			attr_dev(div10, "class", "flex mt2");
-    			add_location(div10, file$1, 161, 0, 5522);
+    			add_location(div10, file$1, 161, 0, 5564);
     			attr_dev(div11, "class", "flex");
-    			add_location(div11, file$1, 168, 1, 5633);
+    			add_location(div11, file$1, 164, 2, 5614);
     			attr_dev(div12, "class", "flex mt2");
-    			add_location(div12, file$1, 172, 1, 5681);
+    			add_location(div12, file$1, 168, 2, 5666);
     			attr_dev(div13, "class", "flex");
-    			add_location(div13, file$1, 163, 0, 5550);
+    			add_location(div13, file$1, 163, 0, 5592);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3780,7 +3796,7 @@ var app = (function () {
     		console.log("cc14Val inc", cc14Val);
     		cc14Val = fixCCValue(cc14Val);
     		console.log("cc14Val send", cc14Val);
-    		sendCc(8, 14, cc14Val);
+    		sendCc(7, 14, cc14Val);
     	};
 
     	const decCC14 = () => {
@@ -3788,12 +3804,12 @@ var app = (function () {
     		console.log("cc14Val dec", cc14Val);
     		cc14Val = fixCCValue(cc14Val);
     		console.log("cc14Val send", cc14Val);
-    		sendCc(8, 14, cc14Val);
+    		sendCc(7, 14, cc14Val);
     	};
 
     	const handleSendCc = () => {
     		const value = 127;
-    		const port = 8;
+    		const port = 7;
     		const controller = 14;
     		sendCc(port, controller, value);
     	};

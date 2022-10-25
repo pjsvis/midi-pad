@@ -6,7 +6,7 @@
 <select>
   <option>Outputs</option>
   {#each outputs as output}
-    <option value={output.id}>{output.name}</option>
+    <option value={output.id}>{output.id}: {output.name}</option>
   {/each}
 </select>
 

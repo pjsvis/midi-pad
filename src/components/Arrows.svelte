@@ -14,29 +14,29 @@ const rl = 'fa fa-chevron-right f1 silver'
 <div class="flex flex-column bg-dark pa4">
 <ul >
     <li>
-      <a href="#">
+      <a href={'#'}>
         <i class="fa fa-chevron-up"></i>        
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href={'#'}>
         <i class="fa fa-chevron-down"></i>
       </a>
       </li>
     <li>
-      <a href="#">
+      <a href={'#'}>
         <i class="fa fa-chevron-left"></i>
       </a>
       
     </li>
     <li>
-        <a href="#">
+      <a href={'#'}>
           <i class="fa fa-chevron-right "></i>
         </a>
         
       </li>
     <li>
-      <a href="#">
+      <a href={'#'}>
         <i class="fa fa-edge"></i>
       </a> 
     </li>
